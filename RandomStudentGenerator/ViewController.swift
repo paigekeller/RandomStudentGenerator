@@ -15,5 +15,14 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func myClassAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "toMyClasses", sender: nil)
+    }
+    
+    @IBAction func createClassAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "toCreateClass", sender: nil)
+    }
+    
+    
 }
 
