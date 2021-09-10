@@ -18,6 +18,9 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableview.delegate = self
+        tableview.dataSource = self
+        
         createClassBtn.isHidden = true
         
         if classes.count == 0 {
