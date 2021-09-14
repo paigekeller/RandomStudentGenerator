@@ -11,9 +11,8 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var createClassBtn: UIButton!
-    
-    var classes: [String] = []
-    var numbers: [Int] = [] //parallel arrays
+    let defaults = UserDefaults()
+    var classes: [MyClass] = [] //decoding from user defualts and resaving
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +25,23 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         if classes.count == 0 {
             createClassBtn.isHidden = false
         }
+        
+        do {
+        let decoder = JSONDecoder()
+
+            print(UserDefaults.standard.array(forKey: "classArray")!.count)
+            
+            for each in UserDefaults.standard.array(forKey: "classArray")! {
+            // Decode Class
+            var temp = try decoder.decode(MyClass.self, from: each as! Data)
+            classes.append(temp)
+            print(temp)
+    }
+            
+        } catch {
+            print("Error handing try")
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +53,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell
         
-        cell.configure(name: classes[indexPath.row], number: numbers[indexPath.row])
+        cell.configure(name: classes[indexPath.row].className, number: classes[indexPath.row].students.count)
         
         
         return cell

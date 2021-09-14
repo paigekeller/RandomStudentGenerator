@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 struct Schedule {
-    
+  
     var allClasses: [Data] = []
+ 
 
 }

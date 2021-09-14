@@ -21,15 +21,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="xkd-94-Hh1" style="IBUITableViewCellStyleDefault" id="h99-vm-YjH">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="20" reuseIdentifier="myCell" textLabel="xkd-94-Hh1" rowHeight="60" style="IBUITableViewCellStyleDefault" id="h99-vm-YjH">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h99-vm-YjH" id="2Rc-Ds-r7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xkd-94-Hh1">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -118,9 +118,11 @@
                         <outlet property="label" destination="pxA-Ok-2Of" id="wAa-8k-9bH"/>
                         <outlet property="studentName" destination="61P-vU-b9E" id="jXQ-cy-epR"/>
                         <outlet property="tableview" destination="Z0a-BJ-ZNL" id="URS-J2-uQE"/>
+                        <segue destination="NWX-wf-3jq" kind="unwind" identifier="unwindHome" unwindAction="unwindHome:" id="1t0-BN-fVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sm8-MK-5fB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="NWX-wf-3jq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="940.57971014492762" y="-642.1875"/>
         </scene>
@@ -189,29 +191,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="70" reuseIdentifier="myCell" rowHeight="106" id="GoZ-tl-I80" customClass="CustomCell" customModule="RandomStudentGenerator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="106"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="70" reuseIdentifier="myCell" rowHeight="110" id="GoZ-tl-I80" customClass="CustomCell" customModule="RandomStudentGenerator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GoZ-tl-I80" id="CJM-si-H4b">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSp-Vy-OUf">
-                                                    <rect key="frame" x="12" y="11" width="257" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSp-Vy-OUf">
+                                                    <rect key="frame" x="12" y="5" width="382" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-Nq-eIq">
-                                                    <rect key="frame" x="12" y="56" width="257" height="39"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Students" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-Nq-eIq">
+                                                    <rect key="frame" x="12" y="46" width="382" height="39"/>
+                                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="NVF-Nq-eIq" firstAttribute="leading" secondItem="CJM-si-H4b" secondAttribute="leading" constant="12" id="EMz-e7-LZH"/>
+                                                <constraint firstAttribute="trailing" secondItem="NVF-Nq-eIq" secondAttribute="trailing" constant="20" id="I1B-HI-m6Z"/>
+                                                <constraint firstAttribute="bottom" secondItem="gSp-Vy-OUf" secondAttribute="bottom" constant="64" id="KSu-L9-vbb"/>
+                                                <constraint firstAttribute="trailing" secondItem="gSp-Vy-OUf" secondAttribute="trailing" constant="20" id="W8a-PZ-Edh"/>
+                                                <constraint firstItem="gSp-Vy-OUf" firstAttribute="leading" secondItem="CJM-si-H4b" secondAttribute="leading" constant="12" id="XcL-hW-DNf"/>
+                                                <constraint firstAttribute="bottom" secondItem="NVF-Nq-eIq" secondAttribute="bottom" constant="25" id="eGB-xp-Oxr"/>
+                                                <constraint firstItem="gSp-Vy-OUf" firstAttribute="top" secondItem="CJM-si-H4b" secondAttribute="top" constant="5" id="osw-nD-dgW"/>
+                                                <constraint firstItem="NVF-Nq-eIq" firstAttribute="top" secondItem="gSp-Vy-OUf" secondAttribute="bottom" id="r2H-Gr-Mre"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <connections>
                                             <outlet property="classNameOutlet" destination="gSp-Vy-OUf" id="S9q-na-rhf"/>
                                             <outlet property="numStudentsOutlet" destination="NVF-Nq-eIq" id="vgA-cm-G65"/>
@@ -253,6 +264,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
