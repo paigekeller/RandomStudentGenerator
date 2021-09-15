@@ -15,6 +15,7 @@
 		A077005225EF088E00768FFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A077005025EF088E00768FFD /* LaunchScreen.storyboard */; };
 		A077005D25EF088E00768FFD /* RandomStudentGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077005C25EF088E00768FFD /* RandomStudentGeneratorTests.swift */; };
 		A077006825EF088E00768FFD /* RandomStudentGeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077006725EF088E00768FFD /* RandomStudentGeneratorUITests.swift */; };
+		FB01C36926F236B80012B418 /* SelectedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01C36826F236B80012B418 /* SelectedClass.swift */; };
 		FB15CD1F26EA5073006698B6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15CD1E26EA5073006698B6 /* Schedule.swift */; };
 		FB22A70926E7AF440087EEF1 /* MyClassesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */; };
 		FB22A70B26E7B0820087EEF1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB22A70A26E7B0820087EEF1 /* CustomCell.swift */; };
@@ -54,6 +55,7 @@
 		A077006325EF088E00768FFD /* RandomStudentGeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomStudentGeneratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A077006725EF088E00768FFD /* RandomStudentGeneratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomStudentGeneratorUITests.swift; sourceTree = "<group>"; };
 		A077006925EF088E00768FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB01C36826F236B80012B418 /* SelectedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedClass.swift; sourceTree = "<group>"; };
 		FB15CD1E26EA5073006698B6 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassesVC.swift; sourceTree = "<group>"; };
 		FB22A70A26E7B0820087EEF1 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				A077004725EF088B00768FFD /* SceneDelegate.swift */,
 				A077004925EF088B00768FFD /* ViewController.swift */,
 				A077004B25EF088B00768FFD /* Main.storyboard */,
+				FB01C36826F236B80012B418 /* SelectedClass.swift */,
 				FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */,
 				FB22A70E26E7B7580087EEF1 /* CreateClass.swift */,
 				FB22A70A26E7B0820087EEF1 /* CustomCell.swift */,
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A077004A25EF088B00768FFD /* ViewController.swift in Sources */,
+				FB01C36926F236B80012B418 /* SelectedClass.swift in Sources */,
 				FB22A70926E7AF440087EEF1 /* MyClassesVC.swift in Sources */,
 				FB22A70F26E7B7580087EEF1 /* CreateClass.swift in Sources */,
 				FB22A70B26E7B0820087EEF1 /* CustomCell.swift in Sources */,

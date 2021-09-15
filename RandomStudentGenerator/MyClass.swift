@@ -17,5 +17,9 @@ class MyClass: Codable {
         students = s
     }
     
+    init() {
+        
+    }
+    
     
 }

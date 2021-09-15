@@ -13,6 +13,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var createClassBtn: UIButton!
     let defaults = UserDefaults()
     var classes: [MyClass] = [] //decoding from user defualts and resaving
+    var selectedClass: MyClass!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,22 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             print("Error handing try")
         }
         
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("The following call was selected")
+        print(classes[indexPath.row].className)
+        selectedClass = classes[indexPath.row]
+        performSegue(withIdentifier: "toSelectedClass", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSelectedClass" {
+            let nvc = segue.destination as! SelectedClass
+            nvc.selectedClass = self.selectedClass
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
