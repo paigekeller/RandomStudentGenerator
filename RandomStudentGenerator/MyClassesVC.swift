@@ -14,6 +14,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     let defaults = UserDefaults()
     var classes: [MyClass] = [] //decoding from user defualts and resaving
     var selectedClass: MyClass!
+    var indexAt: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +48,17 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
     
+    @IBAction func unwindToMyClasses(_ seg: UIStoryboardSegue ) {
+        print("unwinding to classes")
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("The following call was selected")
         print(classes[indexPath.row].className)
         selectedClass = classes[indexPath.row]
+        indexAt = indexPath.row
         performSegue(withIdentifier: "toSelectedClass", sender: nil)
     }
     
@@ -58,6 +66,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         if segue.identifier == "toSelectedClass" {
             let nvc = segue.destination as! SelectedClass
             nvc.selectedClass = self.selectedClass
+            nvc.indexAt = self.indexAt
         }
     }
 

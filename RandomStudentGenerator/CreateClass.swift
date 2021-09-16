@@ -101,7 +101,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableview.dequeueReusableCell(withIdentifier: "myCell") as! UITableViewCell
+        let cell = tableview.dequeueReusableCell(withIdentifier: "myCell")!
         
         cell.textLabel?.text = studentsArray[indexPath.row]
         
