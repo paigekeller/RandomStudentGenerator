@@ -71,7 +71,11 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "myCell")!
         
+        cell.textLabel?.font = UIFont(name: "Futura", size: CGFloat(18))
+        
         cell.textLabel?.text = selectedClass.students[indexPath.row]
+        
+    
         
         return cell
     }
