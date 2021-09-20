@@ -64,6 +64,24 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
 
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
+            
+            print("deleted")
+            self.selectedClass.students.remove(at: indexPath.row)
+            self.tableview.deleteRows(at: [indexPath], with: .automatic)
+            
+            
+        })
+        
+        return [deleteAction]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedClass.students.count
     }
