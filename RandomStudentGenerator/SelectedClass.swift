@@ -16,8 +16,9 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableview: UITableView!
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
-    let alert = UIAlertController(title: "Are You Sure You Want To Delete This Class?", message: "", preferredStyle: .alert)
-    
+    let alert = UIAlertController(title: "Are You Sure You Want To Delete This Class?", message: nil, preferredStyle: .alert)
+   
+    let alert2 = UIAlertController(title: "New Student Name", message: nil, preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,16 +71,51 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
+    //DELETE ACTION
+    let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
             
             print("deleted")
             self.selectedClass.students.remove(at: indexPath.row)
             self.tableview.deleteRows(at: [indexPath], with: .automatic)
-            
-            
-        })
+
+        var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
         
-        return [deleteAction]
+        do {
+        let encoder = JSONEncoder()
+            let data = try encoder.encode(self.selectedClass)
+        tempClassArray?[self.indexAt] = data
+            UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+            
+            print("successfully removed student")
+            
+        } catch {
+            print("Unable to Encode Class (\(error))")
+        }
+        
+        })
+    
+    //EDIT ACTION
+    let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: {action, indexPath in
+        
+        self.alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.alert2.addTextField(configurationHandler: { textField in
+            textField.placeholder = "enter name here"
+                                    })
+        self.alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+            if let name = self.alert2.textFields?.first?.text {
+                print("new name = \(name)")
+            }
+        }))
+        self.present(self.alert2, animated: true)
+        
+        print("edited")
+        
+    })
+        
+    editAction.backgroundColor = UIColor.blue
+    
+        return [deleteAction, editAction]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

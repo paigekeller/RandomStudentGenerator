@@ -402,7 +402,7 @@
         <image name="dice" width="512" height="512"/>
         <image name="homeImage" width="512" height="512"/>
         <image name="spotlight" width="380" height="230"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

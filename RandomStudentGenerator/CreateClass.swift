@@ -69,7 +69,6 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
             let data = try encoder.encode(newclass)
             tempClassArray.append(data)
             
-            //schedule.allClasses.append(data)
             
             // Write/Set Data     //storing or restoring the array of all the classes
             UserDefaults.standard.set(tempClassArray, forKey: "classArray")
