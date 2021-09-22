@@ -10,19 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     let mySchedule = Schedule()
+    @IBOutlet weak var myClsOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
-//
-//        if mySchedule.allClasses.count == 0 {
-//       for each in UserDefaults.standard.array(forKey: "myClasses") as! [Data] {
-//            mySchedule.allClasses.append(each)
-//        }
-//        }
-        
-       
-        
     }
 
     

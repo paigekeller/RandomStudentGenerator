@@ -90,7 +90,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
             print("Unable to Encode Class (\(error))")
         }
         
-        performSegue(withIdentifier: "unwindHome", sender: nil)
+        performSegue(withIdentifier: "unwindToMyClasses", sender: nil)
     }
         
     

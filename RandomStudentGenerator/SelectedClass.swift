@@ -31,6 +31,12 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
+    @IBAction func unwindToSelectedClass(_ seg: UIStoryboardSegue ) {
+        print("unwinding to my class")
+    }
+    
+    
+    
     @IBAction func trashBtn(_ sender: UIButton) {
         let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
             var tempClassArray = UserDefaults.standard.array(forKey: "classArray") as? [Data]
@@ -71,7 +77,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-    //DELETE ACTION
+    //DELETE STUDENT ACTION
     let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
             
             print("deleted")
@@ -94,7 +100,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         })
     
-    //EDIT ACTION
+    
+    //EDIT STUDENT ACTION
     let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: {action, indexPath in
         
         self.alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -105,6 +112,24 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
             if let name = self.alert2.textFields?.first?.text {
                 print("new name = \(name)")
+                self.selectedClass.students[indexPath.row] = name
+                
+                var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
+                
+                do {
+                let encoder = JSONEncoder()
+                    let data = try encoder.encode(self.selectedClass)
+                tempClassArray?[self.indexAt] = data
+                    UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+                    self.tableview.reloadData()
+                    print("successfully changed name")
+                    
+                } catch {
+                    print("Unable to Encode Class (\(error))")
+                }
+                
+                
+                
             }
         }))
         self.present(self.alert2, animated: true)
