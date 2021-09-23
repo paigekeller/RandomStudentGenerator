@@ -31,15 +31,15 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         do {
         let decoder = JSONDecoder()
 
-            print(UserDefaults.standard.array(forKey: "classArray")!.count)
+            if let usdf = UserDefaults.standard.array(forKey: "classArray") {
             
-            for each in UserDefaults.standard.array(forKey: "classArray")! {
+            for each in usdf {
             // Decode Class
             var temp = try decoder.decode(MyClass.self, from: each as! Data)
             classes.append(temp)
             print(temp)
     }
-            
+            }
         } catch {
             print("Error handing try")
         }

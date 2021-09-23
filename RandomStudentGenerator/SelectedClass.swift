@@ -16,7 +16,6 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableview: UITableView!
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
-    let alert = UIAlertController(title: "Are You Sure You Want To Delete This Class?", message: nil, preferredStyle: .alert)
    
     let alert2 = UIAlertController(title: "New Student Name", message: nil, preferredStyle: .alert)
     
@@ -31,33 +30,46 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
+    @IBAction func settingBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "toClassSettings", sender: nil)
+    }
+    
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "toClassSettings" {
+    let nvc = segue.destination as! ClassSettings
+    nvc.selectedClass = self.selectedClass
+    nvc.indexAt = self.indexAt
+    }
+   }
+    
+    
     @IBAction func unwindToSelectedClass(_ seg: UIStoryboardSegue ) {
         print("unwinding to my class")
     }
     
     
-    
-    @IBAction func trashBtn(_ sender: UIButton) {
-        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-            var tempClassArray = UserDefaults.standard.array(forKey: "classArray") as? [Data]
-            tempClassArray?.remove(at: self.indexAt)
-          
-            //restoring the array of all the classes
-            UserDefaults.standard.set(tempClassArray, forKey: "classArray")
-            
-            print("successfully deleted")
-            self.performSegue(withIdentifier: "toClass", sender: nil)
-        })
-        
-        let noAction = UIAlertAction(title: "No", style: .default, handler:  { (_) in
-            //nothing happens
-        })
-        
-        alert.addAction(yesAction)
-        alert.addAction(noAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
+//
+//    @IBAction func trashBtn(_ sender: UIButton) {
+//        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
+//            var tempClassArray = UserDefaults.standard.array(forKey: "classArray") as? [Data]
+//            tempClassArray?.remove(at: self.indexAt)
+//
+//            //restoring the array of all the classes
+//            UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+//
+//            print("successfully deleted")
+//            self.performSegue(withIdentifier: "toClass", sender: nil)
+//        })
+//
+//        let noAction = UIAlertAction(title: "No", style: .default, handler:  { (_) in
+//            //nothing happens
+//        })
+//
+//        alert.addAction(yesAction)
+//        alert.addAction(noAction)
+//
+//        present(alert, animated: true, completion: nil)
+//    }
     
     @IBAction func randBtn(_ sender: UIButton) {
         var random = Int.random(in: 0...(selectedClass.students.count-1))

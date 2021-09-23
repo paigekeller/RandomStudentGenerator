@@ -106,15 +106,13 @@
                                 </state>
                                 <connections>
                                     <action selector="saveClass:" destination="9Ug-yV-5vb" eventType="touchUpInside" id="JMd-fG-vKy"/>
+                                    <segue destination="NWX-wf-3jq" kind="unwind" identifier="unwindToMyClasses" unwindAction="unwindToMyClasses:" id="HYW-nX-fnp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34s-5O-n11">
                                 <rect key="frame" x="9" y="8" width="36" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="homeImage"/>
-                                <connections>
-                                    <segue destination="NWX-wf-3jq" kind="unwind" unwindAction="unwindHome:" id="Xa7-LI-Vb7"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cO3-19-OVI"/>
@@ -126,7 +124,6 @@
                         <outlet property="label" destination="pxA-Ok-2Of" id="wAa-8k-9bH"/>
                         <outlet property="studentName" destination="61P-vU-b9E" id="jXQ-cy-epR"/>
                         <outlet property="tableview" destination="Z0a-BJ-ZNL" id="URS-J2-uQE"/>
-                        <segue destination="NWX-wf-3jq" kind="unwind" identifier="unwindHome" unwindAction="unwindHome:" id="1t0-BN-fVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sm8-MK-5fB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -348,14 +345,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7b-nj-gss">
-                                <rect key="frame" x="361" y="2" width="53" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="btn"/>
-                                <connections>
-                                    <action selector="trashBtn:" destination="RoY-MN-itu" eventType="touchUpInside" id="DsO-HR-hWn"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Randomize!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwR-0a-66Z">
                                 <rect key="frame" x="140" y="219" width="144" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -383,7 +372,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="thicSettings"/>
                                 <connections>
-                                    <segue destination="Yb9-nP-zEn" kind="show" id="bQC-Sf-dz5"/>
+                                    <action selector="settingBtn:" destination="RoY-MN-itu" eventType="touchUpInside" id="nW1-s4-Arl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -399,6 +388,7 @@
                         <outlet property="tableview" destination="91g-wT-W4h" id="iwI-Tn-smw"/>
                         <segue destination="f9y-it-hco" kind="unwind" identifier="unwindToMyClasses:" unwindAction="unwindToMyClasses:" id="MKd-83-hGb"/>
                         <segue destination="FeJ-4F-05W" kind="show" identifier="toClass" id="GQz-sF-6Mu"/>
+                        <segue destination="Yb9-nP-zEn" kind="show" identifier="toClassSettings" id="3my-gd-jln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZu-JO-Ge9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -441,6 +431,9 @@
                                 <state key="normal" title="Delete Class">
                                     <color key="titleColor" systemColor="systemRedColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteAction:" destination="Yb9-nP-zEn" eventType="touchUpInside" id="BDL-uM-Rk3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YPc-H1-p0g"/>
