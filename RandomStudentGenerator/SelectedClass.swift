@@ -7,6 +7,11 @@
 
 import UIKit
 
+// on unwind from class settings to this screen and myClasses screen no function, viewDidAppear or viewWillAppear, resets the screen
+
+
+
+
 class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var button: UIButton!
@@ -14,24 +19,32 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var studentChoosenLabel: UILabel!
     @IBOutlet weak var classNameLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var randBtn: UIButton!
+    
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
-   
+    var temp = UserDefaults.standard.string(forKey: "keepStudentSettings")
     let alert2 = UIAlertController(title: "New Student Name", message: nil, preferredStyle: .alert)
+    var students: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if temp == nil { //if running at for the first time
+            UserDefaults.standard.set("true", forKey: "keepStudentSettings")
+        }
+        print("         \(temp!)")
 
         classNameLabel.text = selectedClass.className
-        
         tableview.delegate = self
         tableview.dataSource = self
-        
+        print(indexAt)
     }
     
-    
-    @IBAction func settingBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "toClassSettings", sender: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        classNameLabel.text = selectedClass.className
+        students = selectedClass.students
     }
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,6 +52,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let nvc = segue.destination as! ClassSettings
     nvc.selectedClass = self.selectedClass
     nvc.indexAt = self.indexAt
+        nvc.tempRS = self.temp!
     }
    }
     
@@ -48,37 +62,27 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
-//
-//    @IBAction func trashBtn(_ sender: UIButton) {
-//        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-//            var tempClassArray = UserDefaults.standard.array(forKey: "classArray") as? [Data]
-//            tempClassArray?.remove(at: self.indexAt)
-//
-//            //restoring the array of all the classes
-//            UserDefaults.standard.set(tempClassArray, forKey: "classArray")
-//
-//            print("successfully deleted")
-//            self.performSegue(withIdentifier: "toClass", sender: nil)
-//        })
-//
-//        let noAction = UIAlertAction(title: "No", style: .default, handler:  { (_) in
-//            //nothing happens
-//        })
-//
-//        alert.addAction(yesAction)
-//        alert.addAction(noAction)
-//
-//        present(alert, animated: true, completion: nil)
-//    }
-    
     @IBAction func randBtn(_ sender: UIButton) {
-        var random = Int.random(in: 0...(selectedClass.students.count-1))
+        if UserDefaults.standard.string(forKey: "keepStudentSettings") == "true" {
+        let random = Int.random(in: 0...(selectedClass.students.count-1))
         
         studentChoosenLabel.text = selectedClass.students[random]
         
         spotlight.isHidden = false
         studentChoosenLabel.isHidden = false
-        
+        } else {
+            print("otherwise")
+            let random = Int.random(in: 0...(students.count-1))
+            studentChoosenLabel.text = students[random]
+            if students.count != 1{
+            students.remove(at: random)
+            } else { //does = 1
+                randBtn.alpha = 0.35
+                resetBtn.isHidden = false
+            }
+            spotlight.isHidden = false
+            studentChoosenLabel.isHidden = false
+        }
     }
     
 
@@ -125,7 +129,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             if let name = self.alert2.textFields?.first?.text {
                 print("new name = \(name)")
                 self.selectedClass.students[indexPath.row] = name
-                
+            
                 var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
                 
                 do {

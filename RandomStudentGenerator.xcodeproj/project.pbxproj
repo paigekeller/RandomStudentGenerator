@@ -117,10 +117,10 @@
 			children = (
 				A077004525EF088B00768FFD /* AppDelegate.swift */,
 				A077004725EF088B00768FFD /* SceneDelegate.swift */,
-				A077004925EF088B00768FFD /* ViewController.swift */,
 				A077004B25EF088B00768FFD /* Main.storyboard */,
-				FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */,
+				A077004925EF088B00768FFD /* ViewController.swift */,
 				FB22A70E26E7B7580087EEF1 /* CreateClass.swift */,
+				FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */,
 				FB01C36826F236B80012B418 /* SelectedClass.swift */,
 				FBCCD12E26FB7826007CF815 /* ClassSettings.swift */,
 				FB22A70A26E7B0820087EEF1 /* CustomCell.swift */,

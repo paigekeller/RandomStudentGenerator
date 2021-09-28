@@ -11,6 +11,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var createClassBtn: UIButton!
+    
     let defaults = UserDefaults()
     var classes: [MyClass] = [] //decoding from user defualts and resaving
     var selectedClass: MyClass!
@@ -22,18 +23,23 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableview.delegate = self
         tableview.dataSource = self
         
-        createClassBtn.isHidden = true
         
-        if classes.count == 0 {
-            createClassBtn.isHidden = false
-        }
+    }
+    
+    @IBAction func unwindToMyClasses(_seg: UIStoryboardSegue) {
+        print("unwinding home")
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         do {
         let decoder = JSONDecoder()
 
             if let usdf = UserDefaults.standard.array(forKey: "classArray") {
-            
+            print("before loop")
             for each in usdf {
+                print("inside loop")
             // Decode Class
             var temp = try decoder.decode(MyClass.self, from: each as! Data)
             classes.append(temp)
@@ -43,19 +49,13 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         } catch {
             print("Error handing try")
         }
-        
-    }
-    
-    
-    
-    @IBAction func unwindToMyClasses(_ seg: UIStoryboardSegue ) {
-        print("unwinding to classes")
+        tableview.reloadData()
     }
     
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("The following call was selected")
+        print("The following class was selected")
         print(classes[indexPath.row].className)
         selectedClass = classes[indexPath.row]
         indexAt = indexPath.row
