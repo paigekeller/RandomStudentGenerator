@@ -21,6 +21,10 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var randBtn: UIButton!
+    @IBOutlet weak var r1: UILabel!
+    @IBOutlet weak var r2: UILabel!
+    
+    
     
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
@@ -31,10 +35,12 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(UserDefaults.standard.string(forKey: "keepStudentSettings"))
+        
         if temp == nil { //if running at for the first time
             UserDefaults.standard.set("true", forKey: "keepStudentSettings")
         }
-        print("         \(temp!)")
+        print("         \(temp)")
 
         classNameLabel.text = selectedClass.className
         tableview.delegate = self
@@ -42,9 +48,10 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         print(indexAt)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         classNameLabel.text = selectedClass.className
         students = selectedClass.students
+        print("Hello World")
     }
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,6 +67,18 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBAction func unwindToSelectedClass(_ seg: UIStoryboardSegue ) {
         print("unwinding to my class")
     }
+    
+    @IBAction func resetAction(_ sender: UIButton) {
+        
+        resetBtn.isHidden = true
+        students = selectedClass.students
+        spotlight.isHidden = true
+        studentChoosenLabel.text = ""
+        randBtn.alpha = 1
+        r1.alpha = 1
+        r2.alpha = 1
+    }
+    
     
     
     @IBAction func randBtn(_ sender: UIButton) {
@@ -78,6 +97,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             students.remove(at: random)
             } else { //does = 1
                 randBtn.alpha = 0.35
+                r1.alpha = 0.35
+                r2.alpha = 0.35
                 resetBtn.isHidden = false
             }
             spotlight.isHidden = false

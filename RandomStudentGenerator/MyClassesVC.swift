@@ -40,7 +40,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             print("before loop")
             for each in usdf {
                 print("inside loop")
-            // Decode Class
+        // Decode Class
             var temp = try decoder.decode(MyClass.self, from: each as! Data)
             classes.append(temp)
             print(temp)
