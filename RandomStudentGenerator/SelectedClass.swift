@@ -39,6 +39,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         if temp == nil { //if running at for the first time
             UserDefaults.standard.set("true", forKey: "keepStudentSettings")
+            temp = UserDefaults.standard.string(forKey: "keepStudentSettings")
         }
         print("         \(temp)")
 

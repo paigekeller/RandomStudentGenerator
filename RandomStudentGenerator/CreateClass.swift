@@ -18,6 +18,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var studentsArray: [String] = []
     let defaults = UserDefaults()
     var schedule = Schedule()
+    let alert = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a name!", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,14 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         tableview.rowHeight = 55
         
+        let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action1)
     }
     
     @IBAction func editBtn(_ sender: UIButton) {
         if className.text?.isEmpty == true {
             print("no")
+            present(alert, animated: true)
         } else  {
         label.text = className.text
         classroomName = className.text!
@@ -43,6 +47,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBAction func addButton(_ sender: UIButton) {
         if studentName.text?.isEmpty == true {
             print("no")
+            present(alert, animated: true)
         } else  {
             studentsArray.append("\(studentName.text!)")
             print("added")

@@ -31,11 +31,10 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    override func viewWillAppear(_ animated: Bool) {
+      classes = []
         do {
         let decoder = JSONDecoder()
-
             if let usdf = UserDefaults.standard.array(forKey: "classArray") {
             print("before loop")
             for each in usdf {

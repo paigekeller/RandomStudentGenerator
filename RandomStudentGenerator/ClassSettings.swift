@@ -32,7 +32,7 @@ class ClassSettings: UIViewController {
             UserDefaults.standard.set(tempClassArray, forKey: "classArray")
             
             print("successfully deleted")
-            self.performSegue(withIdentifier: "unwindHome", sender: nil)
+            self.performSegue(withIdentifier: "unwindToMyClasses", sender: nil)
         })
         
         let noAction = UIAlertAction(title: "No", style: .default, handler:  { (_) in
