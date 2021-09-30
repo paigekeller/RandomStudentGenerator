@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kso-PL-UHS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kso-PL-UHS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="20" reuseIdentifier="myCell" textLabel="xkd-94-Hh1" rowHeight="60" style="IBUITableViewCellStyleDefault" id="h99-vm-YjH">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h99-vm-YjH" id="2Rc-Ds-r7e">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -156,33 +157,42 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1j-op-mGQ">
-                                <rect key="frame" x="0.0" y="558" width="414" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
-                                <state key="normal" title="Creat A New Class!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="createClassAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osm-pv-0g2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-LG-zfj">
-                                <rect key="frame" x="0.0" y="324" width="414" height="226"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
-                                <state key="normal" title="My Classes">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="myClassAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wCz-hh-Xuh"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wqt-zL-BtX">
+                                <rect key="frame" x="0.0" y="358" width="414" height="374"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1j-op-mGQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="183"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
+                                        <state key="normal" title="Create A New Class!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createClassAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="osm-pv-0g2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-LG-zfj">
+                                        <rect key="frame" x="0.0" y="191" width="414" height="183"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
+                                        <state key="normal" title="My Classes">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="myClassAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wCz-hh-Xuh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wqt-zL-BtX" secondAttribute="bottom" constant="130" id="2bx-m2-fVt"/>
+                            <constraint firstItem="wqt-zL-BtX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="270" id="UJU-xx-s1J"/>
+                            <constraint firstItem="wqt-zL-BtX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tW3-FD-tFx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wqt-zL-BtX" secondAttribute="trailing" id="zan-fv-JrB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="TKs-L1-WyV"/>
                     <connections>
@@ -216,7 +226,7 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="70" reuseIdentifier="myCell" rowHeight="110" id="GoZ-tl-I80" customClass="CustomCell" customModule="RandomStudentGenerator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GoZ-tl-I80" id="CJM-si-H4b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -349,7 +359,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="cOY-hs-oxL" style="IBUITableViewCellStyleDefault" id="I2w-Z7-lKX">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2w-Z7-lKX" id="cTR-Xn-Tmt">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -472,7 +482,13 @@
                         <viewLayoutGuide key="safeArea" id="YPc-H1-p0g"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7nP-cX-JWF"/>
+                    <navigationItem key="navigationItem" id="7nP-cX-JWF">
+                        <barButtonItem key="leftBarButtonItem" image="imageedit_2_7865489642" id="3qD-Vh-pM8">
+                            <connections>
+                                <segue destination="lcg-Rn-Cxe" kind="unwind" unwindAction="unwindHome:" id="Oft-H0-hE3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="lcg-Rn-Cxe" kind="unwind" identifier="unwindHome" unwindAction="unwindHome:" id="PKR-bv-02N"/>
                         <segue destination="lcg-Rn-Cxe" kind="unwind" identifier="unwindToMyClasses" unwindAction="unwindToMyClassesWith_seg:" id="T1U-tB-XZw"/>
@@ -504,11 +520,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RMW-t9-QdN"/>
+        <segue reference="92I-7t-4Oq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dice" width="512" height="512"/>
         <image name="homeImage" width="512" height="512"/>
+        <image name="imageedit_2_7865489642" width="512" height="512"/>
         <image name="spotlight" width="380" height="230"/>
         <image name="thicSettings" width="480" height="480"/>
         <systemColor name="systemBackgroundColor">
@@ -524,7 +541,7 @@
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
