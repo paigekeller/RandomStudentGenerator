@@ -11,6 +11,7 @@ import UIKit
 class MyClass: Codable {
     var students: [String] = []
     var className: String = ""
+    // var randomSetting: String //true = keep student, false = remove student
 
     init(cn: String, s: [String]){
         className = cn

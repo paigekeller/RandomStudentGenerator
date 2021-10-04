@@ -10,6 +10,8 @@ import UIKit
 class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
+    @IBOutlet weak var textfield1: UITextField!
+    @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var className: UITextField!
     @IBOutlet weak var label: UILabel!
@@ -30,7 +32,15 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action1)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+                view.addGestureRecognizer(tap) // Add gesture recognizer to background view
     }
+    
+    @objc func handleTap() {
+          textfield.resignFirstResponder() // dismiss keyoard
+          textfield1.resignFirstResponder()
+      }
     
     @IBAction func editBtn(_ sender: UIButton) {
         if className.text?.isEmpty == true {

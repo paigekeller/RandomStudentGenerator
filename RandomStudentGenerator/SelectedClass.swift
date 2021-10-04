@@ -25,7 +25,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var r2: UILabel!
     
     
-    
+    var num = 0
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
     var temp = UserDefaults.standard.string(forKey: "keepStudentSettings")
@@ -47,6 +47,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableview.delegate = self
         tableview.dataSource = self
         print(indexAt)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +69,12 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBAction func unwindToSelectedClass(_ seg: UIStoryboardSegue ) {
         print("unwinding to my class")
     }
+    
+    @IBAction func BBSettingAction(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "toSettings", sender: nil)
+    }
+    
+    
     
     @IBAction func resetAction(_ sender: UIButton) {
         
@@ -113,8 +120,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return true
     }
     
+    
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
     //DELETE STUDENT ACTION
     let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
             
@@ -129,7 +136,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let data = try encoder.encode(self.selectedClass)
         tempClassArray?[self.indexAt] = data
             UserDefaults.standard.set(tempClassArray, forKey: "classArray")
-            
+            self.students = self.selectedClass.students
             print("successfully removed student")
             
         } catch {
@@ -142,6 +149,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     //EDIT STUDENT ACTION
     let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: {action, indexPath in
         
+        if self.num == 0 {
         self.alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.alert2.addTextField(configurationHandler: { textField in
             textField.placeholder = "enter name here"
@@ -161,6 +169,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     UserDefaults.standard.set(tempClassArray, forKey: "classArray")
                     self.tableview.reloadData()
                     print("successfully changed name")
+                    self.students = self.selectedClass.students
                     
                 } catch {
                     print("Unable to Encode Class (\(error))")
@@ -170,6 +179,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 
             }
         }))
+        }
+        self.num += 1
         self.present(self.alert2, animated: true)
         
         print("edited")
