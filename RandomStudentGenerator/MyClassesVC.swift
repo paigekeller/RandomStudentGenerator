@@ -19,7 +19,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         tableview.delegate = self
         tableview.dataSource = self
         
@@ -40,7 +40,8 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             for each in usdf {
                 print("inside loop")
         // Decode Class
-            var temp = try decoder.decode(MyClass.self, from: each as! Data)
+                print(each)
+            let temp = try decoder.decode(MyClass.self, from: each as! Data)
             classes.append(temp)
             print(temp)
     }

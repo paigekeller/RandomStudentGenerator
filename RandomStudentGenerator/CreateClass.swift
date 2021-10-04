@@ -20,7 +20,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var studentsArray: [String] = []
     let defaults = UserDefaults()
     var schedule = Schedule()
-    let alert = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a name!", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a class name!", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,10 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     @IBAction func saveClass(_ sender: UIButton) {
-        let newclass = MyClass(cn: classroomName, s: studentsArray)
+        if classroomName == "" {
+            present(alert, animated: true)
+        } else {
+        let newclass = MyClass(cn: classroomName, s: studentsArray, ks: "true")
         var tempClassArray: [Data]!
         if UserDefaults.standard.array(forKey: "classArray") != nil {  //if it exists...
         tempClassArray = UserDefaults.standard.array(forKey: "classArray") as? [Data]
@@ -104,8 +107,8 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
         } catch {
             print("Unable to Encode Class (\(error))")
         }
-        
-        
+        performSegue(withIdentifier: "toMyClasses", sender: nil)
+        }
     }
         
     

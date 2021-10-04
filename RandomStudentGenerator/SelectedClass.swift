@@ -28,20 +28,11 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var num = 0
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
-    var temp = UserDefaults.standard.string(forKey: "keepStudentSettings")
     let alert2 = UIAlertController(title: "New Student Name", message: nil, preferredStyle: .alert)
     var students: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(UserDefaults.standard.string(forKey: "keepStudentSettings"))
-        
-        if temp == nil { //if running at for the first time
-            UserDefaults.standard.set("true", forKey: "keepStudentSettings")
-            temp = UserDefaults.standard.string(forKey: "keepStudentSettings")
-        }
-        print("         \(temp)")
 
         classNameLabel.text = selectedClass.className
         tableview.delegate = self
@@ -57,11 +48,10 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "toClassSettings" {
+    if segue.identifier == "toSettings" {
     let nvc = segue.destination as! ClassSettings
     nvc.selectedClass = self.selectedClass
     nvc.indexAt = self.indexAt
-        nvc.tempRS = self.temp!
     }
    }
     
@@ -90,7 +80,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     @IBAction func randBtn(_ sender: UIButton) {
-        if UserDefaults.standard.string(forKey: "keepStudentSettings") == "true" {
+        if students.count != 0 {
+        if selectedClass.keepStudentSetting == "true" {
         let random = Int.random(in: 0...(selectedClass.students.count-1))
         
         studentChoosenLabel.text = selectedClass.students[random]
@@ -98,7 +89,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         spotlight.isHidden = false
         studentChoosenLabel.isHidden = false
         } else {
-            print("otherwise")
+            print("false: remove student")
             let random = Int.random(in: 0...(students.count-1))
             studentChoosenLabel.text = students[random]
             if students.count != 1{
@@ -112,6 +103,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             spotlight.isHidden = false
             studentChoosenLabel.isHidden = false
         }
+      }
     }
     
 

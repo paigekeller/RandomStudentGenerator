@@ -10,13 +10,15 @@ import UIKit
 class ClassSettings: UIViewController {
 
     var selectedClass: MyClass = MyClass()
-    var indexAt: Int = 0
+    var indexAt: Int = 6
     var tempRS: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("new index at")
         print(indexAt)
+        print(selectedClass.keepStudentSetting)
+        print(selectedClass.className)
         // Do any additional setup after loading the view.
     }
     
@@ -84,27 +86,30 @@ class ClassSettings: UIViewController {
         var action2: UIAlertAction!
         let action3 = UIAlertAction(title: "Done", style: .default, handler: nil)
         //checking for check mark :)
-        if UserDefaults.standard.string(forKey: "keepStudentSettings") == "true" {
+        if selectedClass.keepStudentSetting == "true" {
             
             action1 = UIAlertAction(title: "Keep Student \(check)", style: .default, handler: { action in
                 
-                UserDefaults.standard.set("true", forKey: "keepStudentSettings")
+                self.selectedClass.keepStudentSetting = "true"
+                print("true")
             })
             action2 = UIAlertAction(title: "Remove Student", style: .default, handler: { action in
                 
-                UserDefaults.standard.set("false", forKey: "keepStudentSettings")
-                
+                self.selectedClass.keepStudentSetting = "false"
+                print("false")
             })
-        } else if UserDefaults.standard.string(forKey: "keepStudentSettings") == "false" {
+            
+        } else if selectedClass.keepStudentSetting == "false" {
             
             action1 = UIAlertAction(title: "Keep Student", style: .default, handler: { action in
                 
-                UserDefaults.standard.set("true", forKey: "keepStudentSettings")
+                self.selectedClass.keepStudentSetting = "true"
+                print("true")
             })
             action2 = UIAlertAction(title: "Remove Student \(check)", style: .default, handler: { action in
                 
-                UserDefaults.standard.set("false", forKey: "keepStudentSettings")
-                
+                self.selectedClass.keepStudentSetting = "false"
+                print("false")
             })
         }
         alert3.addAction(action1)

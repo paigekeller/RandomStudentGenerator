@@ -11,11 +11,12 @@ import UIKit
 class MyClass: Codable {
     var students: [String] = []
     var className: String = ""
-    // var randomSetting: String //true = keep student, false = remove student
+    var keepStudentSetting: String = "" //true = keep student, false = remove student
 
-    init(cn: String, s: [String]){
+    init(cn: String, s: [String], ks: String){
         className = cn
         students = s
+        keepStudentSetting = ks
     }
     
     init() {
