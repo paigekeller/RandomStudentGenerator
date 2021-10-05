@@ -23,12 +23,13 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var randBtn: UIButton!
     @IBOutlet weak var r1: UILabel!
     @IBOutlet weak var r2: UILabel!
-    
-    
     var num = 0
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
-    let alert2 = UIAlertController(title: "New Student Name", message: nil, preferredStyle: .alert)
+    
+    let alert2 = UIAlertController(title: "Edit Student Name", message: nil, preferredStyle: .alert)
+    let addStudentAlert = UIAlertController(title: "Add Student", message: nil, preferredStyle: .alert)
+    
     var students: [String] = []
     
     override func viewDidLoad() {
@@ -42,6 +43,32 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        addStudentAlert.addTextField()
+        
+        let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let addAction = UIAlertAction(title: "Ok", style: .default, handler: {action in
+            let newName = self.addStudentAlert.textFields![0].text!
+            self.selectedClass.students.append(newName)
+            self.students = self.selectedClass.students
+            self.tableview.reloadData()
+            var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
+            
+            do {
+            let encoder = JSONEncoder()
+                let data = try encoder.encode(self.selectedClass)
+            tempClassArray?[self.indexAt] = data
+                UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+                print("successfully added student")
+                
+            } catch {
+                print("Unable to Encode Class (\(error))")
+            }
+        })
+        addStudentAlert.addAction(cancelAct)
+        addStudentAlert.addAction(addAction)
+        
         classNameLabel.text = selectedClass.className
         students = selectedClass.students
         print("Hello World")
@@ -64,6 +91,9 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         performSegue(withIdentifier: "toSettings", sender: nil)
     }
     
+    @IBAction func addAction(_ sender: UIButton) {
+        present(addStudentAlert, animated: true)
+    }
     
     
     @IBAction func resetAction(_ sender: UIButton) {
