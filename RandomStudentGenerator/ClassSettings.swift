@@ -51,7 +51,7 @@ class ClassSettings: UIViewController {
     @IBAction func editBtn(_ sender: UIButton) {
         let alert2 = UIAlertController(title: "Enter The New Name Of Your Class", message: nil, preferredStyle: .alert)
         alert2.addTextField()
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
             let name = alert2.textFields![0].text!
                 print("new name = \(name)")
@@ -91,11 +91,35 @@ class ClassSettings: UIViewController {
             action1 = UIAlertAction(title: "Keep Student \(check)", style: .default, handler: { action in
                 
                 self.selectedClass.keepStudentSetting = "true"
+                var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
+                
+                do {
+                let encoder = JSONEncoder()
+                    let data = try encoder.encode(self.selectedClass)
+                tempClassArray?[self.indexAt] = data
+                    UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+                    print("successfully added student")
+                    
+                } catch {
+                    print("Unable to Encode Class (\(error))")
+                }
                 print("true")
             })
             action2 = UIAlertAction(title: "Remove Student", style: .default, handler: { action in
                 
                 self.selectedClass.keepStudentSetting = "false"
+                var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
+                
+                do {
+                let encoder = JSONEncoder()
+                    let data = try encoder.encode(self.selectedClass)
+                tempClassArray?[self.indexAt] = data
+                    UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+                    print("successfully added student")
+                    
+                } catch {
+                    print("Unable to Encode Class (\(error))")
+                }
                 print("false")
             })
             
@@ -104,11 +128,35 @@ class ClassSettings: UIViewController {
             action1 = UIAlertAction(title: "Keep Student", style: .default, handler: { action in
                 
                 self.selectedClass.keepStudentSetting = "true"
+                var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
+                
+                do {
+                let encoder = JSONEncoder()
+                    let data = try encoder.encode(self.selectedClass)
+                tempClassArray?[self.indexAt] = data
+                    UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+                    print("successfully added student")
+                    
+                } catch {
+                    print("Unable to Encode Class (\(error))")
+                }
                 print("true")
             })
             action2 = UIAlertAction(title: "Remove Student \(check)", style: .default, handler: { action in
                 
                 self.selectedClass.keepStudentSetting = "false"
+                var tempClassArray = UserDefaults.standard.array(forKey: "classArray")
+                
+                do {
+                let encoder = JSONEncoder()
+                    let data = try encoder.encode(self.selectedClass)
+                tempClassArray?[self.indexAt] = data
+                    UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+                    print("successfully added student")
+                    
+                } catch {
+                    print("Unable to Encode Class (\(error))")
+                }
                 print("false")
             })
         }

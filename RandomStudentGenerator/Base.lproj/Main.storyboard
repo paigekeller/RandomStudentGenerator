@@ -372,7 +372,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-Kk-apd">
-                                <rect key="frame" x="135" y="184" width="154" height="141"/>
+                                <rect key="frame" x="135" y="184" width="146" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Randomize!" image="dice">
@@ -396,14 +396,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Randomize!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwR-0a-66Z">
-                                <rect key="frame" x="140" y="285" width="144" height="50"/>
+                                <rect key="frame" x="136" y="285" width="144" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Randomize!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsJ-AD-LjY">
-                                <rect key="frame" x="135" y="170" width="154" height="50"/>
+                                <rect key="frame" x="132" y="170" width="153" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,6 +416,10 @@
                                     <action selector="addAction:" destination="RoY-MN-itu" eventType="touchUpInside" id="p33-hG-oS2"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-3P-LS8">
+                                <rect key="frame" x="39" y="168" width="346" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CrU-0i-VzC"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -460,6 +464,7 @@
                         <outlet property="randBtn" destination="bDZ-Kk-apd" id="fOV-5a-4Dv"/>
                         <outlet property="resetBtn" destination="hIL-P2-fZV" id="v2O-5J-PS9"/>
                         <outlet property="spotlight" destination="diM-O9-U87" id="ZgE-Oa-Fxd"/>
+                        <outlet property="square" destination="ePo-3P-LS8" id="1zn-hL-to2"/>
                         <outlet property="studentChoosenLabel" destination="piN-Ei-jEs" id="nQW-8E-STY"/>
                         <outlet property="tableview" destination="91g-wT-W4h" id="iwI-Tn-smw"/>
                         <segue destination="f9y-it-hco" kind="unwind" identifier="" unwindAction="unwindToMyClasses:" id="MKd-83-hGb"/>
@@ -609,6 +614,7 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="spotlight" width="380" height="230"/>
+        <image name="square" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

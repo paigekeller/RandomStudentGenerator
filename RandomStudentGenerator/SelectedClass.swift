@@ -23,6 +23,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var randBtn: UIButton!
     @IBOutlet weak var r1: UILabel!
     @IBOutlet weak var r2: UILabel!
+    @IBOutlet weak var square: UIImageView!
+    
     var num = 0
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
@@ -39,14 +41,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableview.delegate = self
         tableview.dataSource = self
         print(indexAt)
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
         addStudentAlert.addTextField()
-        
-        let cancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         
         let addAction = UIAlertAction(title: "Ok", style: .default, handler: {action in
             let newName = self.addStudentAlert.textFields![0].text!
@@ -65,9 +61,15 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             } catch {
                 print("Unable to Encode Class (\(error))")
             }
+            self.addStudentAlert.textFields![0].text = ""
         })
         addStudentAlert.addAction(cancelAct)
         addStudentAlert.addAction(addAction)
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         classNameLabel.text = selectedClass.className
         students = selectedClass.students
@@ -99,12 +101,13 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBAction func resetAction(_ sender: UIButton) {
         
         resetBtn.isHidden = true
+        square.isHidden = true
         students = selectedClass.students
         spotlight.isHidden = true
         studentChoosenLabel.text = ""
-        randBtn.alpha = 1
-        r1.alpha = 1
-        r2.alpha = 1
+        randBtn.isHidden = false
+        r1.isHidden = false
+        r2.isHidden = false
     }
     
     
@@ -125,10 +128,11 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             if students.count != 1{
             students.remove(at: random)
             } else { //does = 1
-                randBtn.alpha = 0.35
-                r1.alpha = 0.35
-                r2.alpha = 0.35
+                randBtn.isHidden = true
+                r1.isHidden = true
+                r2.isHidden = true
                 resetBtn.isHidden = false
+                square.isHidden = false
             }
             spotlight.isHidden = false
             studentChoosenLabel.isHidden = false
