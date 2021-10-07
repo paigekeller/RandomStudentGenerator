@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
 
     @IBOutlet weak var textfield1: UITextField!
@@ -27,7 +27,8 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         tableview.delegate = self
         tableview.dataSource = self
-        
+        textfield.delegate = self
+        textfield1.delegate = self
         tableview.rowHeight = 55
         
         let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -41,6 +42,11 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
           textfield.resignFirstResponder() // dismiss keyoard
           textfield1.resignFirstResponder()
       }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     @IBAction func editBtn(_ sender: UIButton) {
         if className.text?.isEmpty == true {
@@ -131,3 +137,4 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
 }
+

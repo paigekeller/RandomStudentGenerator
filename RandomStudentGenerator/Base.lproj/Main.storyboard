@@ -13,27 +13,27 @@
             <objects>
                 <viewController id="9Ug-yV-5vb" customClass="CreateClass" customModule="RandomStudentGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fdb-Af-qhu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="da4-Gg-JQH">
-                                <rect key="frame" x="20" y="199" width="158" height="35"/>
+                                <rect key="frame" x="20" y="111" width="158" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="61P-vU-b9E">
-                                <rect key="frame" x="20" y="274" width="158" height="34"/>
+                                <rect key="frame" x="20" y="186" width="158" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Class Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EG-Zi-80b">
-                                <rect key="frame" x="20" y="170" width="158" height="21"/>
+                                <rect key="frame" x="10" y="82" width="184" height="21"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Student" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xj-xo-3wF">
-                                <rect key="frame" x="20" y="241" width="158" height="25"/>
+                                <rect key="frame" x="20" y="153" width="158" height="25"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUW-lj-c1r">
-                                <rect key="frame" x="192" y="199" width="50" height="36"/>
+                                <rect key="frame" x="192" y="111" width="50" height="36"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <state key="normal" title="edit"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbv-6b-UP7">
-                                <rect key="frame" x="192" y="274" width="50" height="34"/>
+                                <rect key="frame" x="192" y="186" width="50" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="+">
@@ -67,7 +67,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbS-fl-YgT">
-                                <rect key="frame" x="33" y="810" width="348" height="52"/>
+                                <rect key="frame" x="33" y="756" width="348" height="52"/>
                                 <color key="backgroundColor" red="0.50528765689999999" green="1" blue="0.51533363830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                 <state key="normal" title="Save Class">
@@ -78,7 +78,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z0a-BJ-ZNL">
-                                <rect key="frame" x="0.0" y="327" width="414" height="475"/>
+                                <rect key="frame" x="0.0" y="239" width="414" height="509"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="20" reuseIdentifier="myCell" textLabel="xkd-94-Hh1" rowHeight="60" style="IBUITableViewCellStyleDefault" id="h99-vm-YjH">
@@ -114,7 +114,7 @@
                             <constraint firstItem="cO3-19-OVI" firstAttribute="trailing" secondItem="61P-vU-b9E" secondAttribute="trailing" constant="236" id="Dto-Xo-p2r"/>
                             <constraint firstItem="da4-Gg-JQH" firstAttribute="top" secondItem="0EG-Zi-80b" secondAttribute="bottom" constant="8" id="EXO-sn-HKs"/>
                             <constraint firstItem="61P-vU-b9E" firstAttribute="leading" secondItem="cO3-19-OVI" secondAttribute="leading" constant="20" id="EjP-ua-448"/>
-                            <constraint firstItem="0EG-Zi-80b" firstAttribute="leading" secondItem="cO3-19-OVI" secondAttribute="leading" constant="20" id="HoG-W0-1Bw"/>
+                            <constraint firstItem="0EG-Zi-80b" firstAttribute="leading" secondItem="cO3-19-OVI" secondAttribute="leading" constant="10" id="HoG-W0-1Bw"/>
                             <constraint firstItem="cO3-19-OVI" firstAttribute="trailing" secondItem="Wbv-6b-UP7" secondAttribute="trailing" constant="172" id="ORr-fa-Wxm"/>
                             <constraint firstItem="Wbv-6b-UP7" firstAttribute="top" secondItem="wUW-lj-c1r" secondAttribute="bottom" constant="39" id="OVv-ZK-emq"/>
                             <constraint firstItem="ZbS-fl-YgT" firstAttribute="top" secondItem="Z0a-BJ-ZNL" secondAttribute="bottom" constant="8" id="OuA-0c-LLd"/>
@@ -130,7 +130,7 @@
                             <constraint firstItem="ZbS-fl-YgT" firstAttribute="leading" secondItem="cO3-19-OVI" secondAttribute="leading" constant="33" id="guU-4X-c6o"/>
                             <constraint firstItem="9xj-xo-3wF" firstAttribute="leading" secondItem="cO3-19-OVI" secondAttribute="leading" constant="20" id="ite-wx-WrB"/>
                             <constraint firstItem="cO3-19-OVI" firstAttribute="bottom" secondItem="Z0a-BJ-ZNL" secondAttribute="bottom" constant="60" id="j8c-78-Hj9"/>
-                            <constraint firstItem="cO3-19-OVI" firstAttribute="trailing" secondItem="0EG-Zi-80b" secondAttribute="trailing" constant="236" id="oV6-jf-eXZ"/>
+                            <constraint firstItem="cO3-19-OVI" firstAttribute="trailing" secondItem="0EG-Zi-80b" secondAttribute="trailing" constant="220" id="oV6-jf-eXZ"/>
                             <constraint firstItem="cO3-19-OVI" firstAttribute="trailing" secondItem="9xj-xo-3wF" secondAttribute="trailing" constant="236" id="uyi-6v-yrD"/>
                             <constraint firstItem="61P-vU-b9E" firstAttribute="top" secondItem="9xj-xo-3wF" secondAttribute="bottom" constant="8" id="vrD-TV-ari"/>
                             <constraint firstItem="cO3-19-OVI" firstAttribute="trailing" secondItem="ZbS-fl-YgT" secondAttribute="trailing" constant="33" id="vyI-rA-fbb"/>
@@ -165,23 +165,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RandomStudentGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice" translatesAutoresizingMaskIntoConstraints="NO" id="ILq-Hn-xKf">
-                                <rect key="frame" x="45" y="137" width="324" height="139"/>
+                                <rect key="frame" x="45" y="49" width="324" height="139"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Student Generator" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="CK3-i5-0AT">
-                                <rect key="frame" x="0.0" y="70" width="414" height="169"/>
+                                <rect key="frame" x="0.0" y="70" width="414" height="81"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wqt-zL-BtX">
-                                <rect key="frame" x="0.0" y="358" width="414" height="374"/>
+                                <rect key="frame" x="0.0" y="270" width="414" height="408"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1j-op-mGQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="183"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
                                         <state key="normal" title="Create A New Class!">
@@ -192,7 +192,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-LG-zfj">
-                                        <rect key="frame" x="0.0" y="191" width="414" height="183"/>
+                                        <rect key="frame" x="0.0" y="208" width="414" height="200"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
                                         <state key="normal" title="My Classes">
@@ -605,7 +605,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="GQz-sF-6Mu"/>
-        <segue reference="i6V-dW-pYJ"/>
+        <segue reference="w0a-Zj-t4Q"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
