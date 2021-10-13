@@ -14,16 +14,12 @@ import UIKit
 
 class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var spotlight: UIImageView!
     @IBOutlet weak var studentChoosenLabel: UILabel!
     @IBOutlet weak var classNameLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var randBtn: UIButton!
-    @IBOutlet weak var r1: UILabel!
-    @IBOutlet weak var r2: UILabel!
-    @IBOutlet weak var square: UIImageView!
     
     var num = 0
     var selectedClass: MyClass = MyClass()
@@ -101,13 +97,10 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBAction func resetAction(_ sender: UIButton) {
         
         resetBtn.isHidden = true
-        square.isHidden = true
         students = selectedClass.students
         spotlight.isHidden = true
         studentChoosenLabel.text = ""
         randBtn.isHidden = false
-        r1.isHidden = false
-        r2.isHidden = false
     }
     
     
@@ -129,10 +122,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
             students.remove(at: random)
             } else { //does = 1
                 randBtn.isHidden = true
-                r1.isHidden = true
-                r2.isHidden = true
                 resetBtn.isHidden = false
-                square.isHidden = false
             }
             spotlight.isHidden = false
             studentChoosenLabel.isHidden = false
