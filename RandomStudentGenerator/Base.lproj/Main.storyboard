@@ -366,9 +366,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-Kk-apd">
-                                <rect key="frame" x="135" y="184" width="146" height="141"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-Kk-apd">
+                                <rect key="frame" x="133" y="184" width="148" height="141"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Randomize!" image="fullRandBtn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,7 +395,7 @@
                                     <action selector="addAction:" destination="RoY-MN-itu" eventType="touchUpInside" id="p33-hG-oS2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Class Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QX7-EX-EzO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QX7-EX-EzO">
                                 <rect key="frame" x="0.0" y="129" width="414" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
@@ -412,16 +411,22 @@
                             <constraint firstItem="hIL-P2-fZV" firstAttribute="leading" secondItem="CrU-0i-VzC" secondAttribute="leading" constant="135" id="2hQ-h6-Vbl"/>
                             <constraint firstItem="91g-wT-W4h" firstAttribute="top" secondItem="CrU-0i-VzC" secondAttribute="top" constant="414" id="5NB-2D-G4I"/>
                             <constraint firstItem="91g-wT-W4h" firstAttribute="top" secondItem="Nxa-sC-sYg" secondAttribute="bottom" id="H4F-p5-IbS"/>
+                            <constraint firstItem="hIL-P2-fZV" firstAttribute="top" secondItem="QX7-EX-EzO" secondAttribute="bottom" constant="19" id="KAf-Az-iLm"/>
                             <constraint firstItem="91g-wT-W4h" firstAttribute="leading" secondItem="CrU-0i-VzC" secondAttribute="leading" constant="20" id="NIE-yl-e21"/>
                             <constraint firstItem="CrU-0i-VzC" firstAttribute="trailing" secondItem="piN-Ei-jEs" secondAttribute="trailing" constant="19" id="Qbs-kc-bw0"/>
                             <constraint firstItem="piN-Ei-jEs" firstAttribute="leading" secondItem="CrU-0i-VzC" secondAttribute="leading" constant="19" id="Tew-gM-VgA"/>
+                            <constraint firstItem="QX7-EX-EzO" firstAttribute="centerX" secondItem="piN-Ei-jEs" secondAttribute="centerX" id="YVg-KJ-GWv"/>
+                            <constraint firstItem="bDZ-Kk-apd" firstAttribute="leading" secondItem="CrU-0i-VzC" secondAttribute="leading" constant="133" id="ayb-4k-22V"/>
                             <constraint firstItem="CrU-0i-VzC" firstAttribute="trailing" secondItem="Nxa-sC-sYg" secondAttribute="trailing" constant="22" id="bC6-zj-Ar4"/>
                             <constraint firstItem="91g-wT-W4h" firstAttribute="top" secondItem="piN-Ei-jEs" secondAttribute="bottom" id="c09-yQ-JKQ"/>
                             <constraint firstAttribute="bottom" secondItem="91g-wT-W4h" secondAttribute="bottom" constant="34" id="dmE-2s-2y3"/>
+                            <constraint firstItem="bDZ-Kk-apd" firstAttribute="top" secondItem="QX7-EX-EzO" secondAttribute="bottom" constant="22" id="gGQ-WE-9hR"/>
+                            <constraint firstItem="CrU-0i-VzC" firstAttribute="trailing" secondItem="bDZ-Kk-apd" secondAttribute="trailing" constant="133" id="o26-Ji-0X0"/>
                             <constraint firstItem="Nxa-sC-sYg" firstAttribute="top" secondItem="CrU-0i-VzC" secondAttribute="top" constant="380" id="pvX-Pl-KTP"/>
-                            <constraint firstItem="hIL-P2-fZV" firstAttribute="top" secondItem="QX7-EX-EzO" secondAttribute="bottom" constant="19" id="rCA-g9-vsd"/>
                             <constraint firstItem="CrU-0i-VzC" firstAttribute="trailing" secondItem="91g-wT-W4h" secondAttribute="trailing" constant="20" id="rk4-GY-UlF"/>
                             <constraint firstItem="CrU-0i-VzC" firstAttribute="bottom" secondItem="hIL-P2-fZV" secondAttribute="bottom" constant="491" id="rzh-n3-1Wl"/>
+                            <constraint firstItem="QX7-EX-EzO" firstAttribute="leading" secondItem="CrU-0i-VzC" secondAttribute="leading" id="wqc-tb-akj"/>
+                            <constraint firstItem="91g-wT-W4h" firstAttribute="top" secondItem="bDZ-Kk-apd" secondAttribute="bottom" constant="133" id="xPG-Nw-ygB"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -594,7 +599,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
-        <image name="arrow.left" catalog="system" width="32" height="32"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="dice" width="512" height="512"/>
         <image name="fullRandBtn" width="448" height="430"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
