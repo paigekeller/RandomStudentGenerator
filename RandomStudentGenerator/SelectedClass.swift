@@ -32,7 +32,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         classNameLabel.text = selectedClass.className
         tableview.delegate = self
         tableview.dataSource = self
@@ -94,18 +94,29 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
-    @IBAction func resetAction(_ sender: UIButton) {
-        
-        resetBtn.isHidden = true
-        students = selectedClass.students
-        spotlight.isHidden = true
-        studentChoosenLabel.text = ""
-        randBtn.isHidden = false
-    }
-    
+//    @IBAction func resetAction(_ sender: UIButton) {
+//        
+//        resetBtn.isHidden = true
+//        students = selectedClass.students
+//        spotlight.isHidden = true
+//        studentChoosenLabel.text = ""
+//        randBtn.isHidden = false
+//    }
+//    
     
     
     @IBAction func randBtn(_ sender: UIButton) {
+        
+        if randBtn.imageView?.image == UIImage(named: "resetbuttonPic")! {
+            
+            students = selectedClass.students
+            spotlight.isHidden = true
+            studentChoosenLabel.text = ""
+            let image = UIImage(named: "fullRandBtn")
+            randBtn.setImage(image, for: .normal)
+            
+        } else {
+            
         if students.count != 0 {
         if selectedClass.keepStudentSetting == "true" {
         let random = Int.random(in: 0...(selectedClass.students.count-1))
@@ -115,19 +126,23 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         spotlight.isHidden = false
         studentChoosenLabel.isHidden = false
         } else {
+            
             print("false: remove student")
             let random = Int.random(in: 0...(students.count-1))
             studentChoosenLabel.text = students[random]
             if students.count != 1{
             students.remove(at: random)
             } else { //does = 1
-                randBtn.isHidden = true
-                resetBtn.isHidden = false
+                
+                let image = UIImage(named: "resetbuttonPic")
+                randBtn.setImage(image, for: .normal)
             }
+            
             spotlight.isHidden = false
             studentChoosenLabel.isHidden = false
         }
       }
+        }
     }
     
 
