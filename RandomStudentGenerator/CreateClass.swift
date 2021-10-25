@@ -21,6 +21,8 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
     let defaults = UserDefaults()
     var schedule = Schedule()
     let alert = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a class name!", preferredStyle: .alert)
+    let alert2 = UIAlertController(title: "Edit Student Name", message: nil, preferredStyle: .alert)
+    var num = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +73,54 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableview.reloadData()
         studentName.text = ""
     }
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    //DELETE STUDENT ACTION
+    let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
+            
+            print("deleted")
+            self.studentsArray.remove(at: indexPath.row)
+            self.tableview.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
+    })
+    //EDIT STUDENT ACTION
+    let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: {action, indexPath in
+        
+        if self.num == 0 {
+        self.alert2.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.alert2.addTextField(configurationHandler: { textField in
+            textField.placeholder = "enter name here"
+                                    })
+        self.alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+
+            if let name = self.alert2.textFields?.first?.text {
+                print("new name = \(name)")
+                self.studentsArray[indexPath.row] = name
+                self.tableview.reloadData()
+            }
+        }))
+        }
+        self.num += 1
+        
+        self.present(self.alert2, animated: true)
+        
+        print("edited")
+        
+    })
+        
+    editAction.backgroundColor = UIColor.blue
+    
+       return [deleteAction, editAction]
+   }
+    
+    
+    
     
     @IBAction func saveClass(_ sender: UIButton) {
         if classroomName == "" {

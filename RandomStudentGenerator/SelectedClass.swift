@@ -94,15 +94,6 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
-//    @IBAction func resetAction(_ sender: UIButton) {
-//        
-//        resetBtn.isHidden = true
-//        students = selectedClass.students
-//        spotlight.isHidden = true
-//        studentChoosenLabel.text = ""
-//        randBtn.isHidden = false
-//    }
-//    
     
     
     @IBAction func randBtn(_ sender: UIButton) {
