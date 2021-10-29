@@ -9,5 +9,11 @@ import UIKit
 
 class CustomCell2: UITableViewCell {
 
-
+    @IBOutlet weak var groupLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+   
+    func configure(name: String, groupNum: Int) {
+        groupLabel.text = "Group: \(groupNum)"
+    }
 }

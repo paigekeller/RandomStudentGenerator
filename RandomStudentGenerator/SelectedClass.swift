@@ -77,6 +77,9 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let nvc = segue.destination as! ClassSettings
     nvc.selectedClass = self.selectedClass
     nvc.indexAt = self.indexAt
+    } else if segue.identifier == "toGroups" {
+        let nvc = segue.destination as! GroupsClass
+        nvc.studentsArray = self.students
     }
    }
     
