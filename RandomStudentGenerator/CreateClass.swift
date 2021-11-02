@@ -22,6 +22,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var schedule = Schedule()
     let alert = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a class name!", preferredStyle: .alert)
     let alert2 = UIAlertController(title: "Edit Student Name", message: nil, preferredStyle: .alert)
+    let alert3 = UIAlertController(title: "Error \n Looks like you already have a student with that name!", message: nil, preferredStyle: .alert)
     var num = 0
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action1)
-        
+        alert3.addAction(action1)
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
                 view.addGestureRecognizer(tap) // Add gesture recognizer to background view
     }
@@ -66,7 +67,9 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
         if studentName.text?.isEmpty == true {
             print("no")
             present(alert, animated: true)
-        } else  {
+        } else if checkNames(name: studentName.text!) == true {
+            present(alert3, animated: true, completion: nil)
+        } else {
             studentsArray.append("\(studentName.text!)")
             print("added")
         }
@@ -184,7 +187,14 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     
-    
+    func checkNames(name: String) -> Bool {
+        for each in studentsArray {
+            if each == name {
+                return true
+            }
+        }
+        return false
+    }
     
 }
 

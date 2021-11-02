@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupsClass: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
+class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
 
     
     @IBOutlet weak var picker: UIPickerView!
@@ -16,14 +16,22 @@ class GroupsClass: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var studentsBtn: UIButton!
     var greenTracker = 0
+    var groupsClass = Group()
     var array = ["Number Of Groups/Students","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
     var numGroups: Int = 0
     var numStudents: Int = 0
     var studentsArray: [String] = []
+    var randStudentsArray: [String] = []
+    let alert = UIAlertController(title: "Woops... \n It looks like you selected more groups than you have students!", message: nil, preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        randStudentsArray = studentsArray.shuffled()
+        print(randStudentsArray)
+        
         picker.isHidden = true
         groupsBtn.titleLabel?.font = UIFont(name: "Marker Felt", size: 20)
         studentsBtn.titleLabel?.font = UIFont(name: "Marker Felt", size: 20)
@@ -71,6 +79,7 @@ class GroupsClass: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row != 0 {
         if greenTracker == 1 { // sort by groups
             numGroups = Int(array[row])!
             print(numGroups)
@@ -78,13 +87,25 @@ class GroupsClass: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             numStudents = Int(array[row])!
             print(numStudents)
         }
+        if numGroups > studentsArray.count {
+            present(alert, animated: true, completion: nil)
+        } else {
+        groupsClass = Group(students: randStudentsArray, numGroups: numGroups)
+//            print(groupsClass.groups[0])
+//            print(groupsClass.groups[1])
+//            print(groupsClass.groups[2])
         tableview.reloadData()
+        }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (greenTracker != 0) {
-            return studentsArray.count
+        if (greenTracker == 1) { //groups
+            return numGroups
+        }
+        else if greenTracker == -1 { //students
+return (studentsArray.count/numStudents)
         }
         
         return 0
@@ -94,6 +115,8 @@ class GroupsClass: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         let cell = tableview.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell2
         
         
+        cell.configure(group: groupsClass, groupNum: indexPath.row)
+
         if greenTracker == -1 { //students/group
             
         }

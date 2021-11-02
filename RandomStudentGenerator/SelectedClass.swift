@@ -18,13 +18,13 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var studentChoosenLabel: UILabel!
     @IBOutlet weak var classNameLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var randBtn: UIButton!
+    @IBOutlet weak var groupsBtn: UIButton!
     
     var num = 0
     var selectedClass: MyClass = MyClass()
     var indexAt: Int = 0
-    
+    let alert = UIAlertController(title: "Error \n Looks like you already have a student with that name!", message: nil, preferredStyle: .alert)
     let alert2 = UIAlertController(title: "Edit Student Name", message: nil, preferredStyle: .alert)
     let addStudentAlert = UIAlertController(title: "Add Student", message: nil, preferredStyle: .alert)
     
@@ -33,15 +33,19 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        groupsBtn.backgroundColor = UIColor.systemBrown
+        groupsBtn.titleLabel?.font = UIFont(name: "Marker Felt", size: 13)
+        
         classNameLabel.text = selectedClass.className
         tableview.delegate = self
         tableview.dataSource = self
         print(indexAt)
         addStudentAlert.addTextField()
         let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         let addAction = UIAlertAction(title: "Ok", style: .default, handler: {action in
             let newName = self.addStudentAlert.textFields![0].text!
+            if self.checkNames(name: newName) == false {
             self.selectedClass.students.append(newName)
             self.students = self.selectedClass.students
             self.tableview.reloadData()
@@ -58,10 +62,13 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 print("Unable to Encode Class (\(error))")
             }
             self.addStudentAlert.textFields![0].text = ""
+            } else {
+                self.present(self.alert, animated: true, completion: nil)
+            }
         })
         addStudentAlert.addAction(cancelAct)
         addStudentAlert.addAction(addAction)
-        
+        alert.addAction(okAction)
         
     }
     
@@ -78,7 +85,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     nvc.selectedClass = self.selectedClass
     nvc.indexAt = self.indexAt
     } else if segue.identifier == "toGroups" {
-        let nvc = segue.destination as! GroupsClass
+        let nvc = segue.destination as! GroupsViewController
         nvc.studentsArray = self.students
     }
    }
@@ -233,6 +240,13 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    
+    func checkNames(name: String) -> Bool {
+        for each in students {
+            if each == name {
+                return true
+            }
+        }
+        return false
+    }
 
 }

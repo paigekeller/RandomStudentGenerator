@@ -15,7 +15,8 @@
 		A077005225EF088E00768FFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A077005025EF088E00768FFD /* LaunchScreen.storyboard */; };
 		A077005D25EF088E00768FFD /* RandomStudentGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077005C25EF088E00768FFD /* RandomStudentGeneratorTests.swift */; };
 		A077006825EF088E00768FFD /* RandomStudentGeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A077006725EF088E00768FFD /* RandomStudentGeneratorUITests.swift */; };
-		EE3B6831272AED7C00B9662C /* GroupsClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B6830272AED7C00B9662C /* GroupsClass.swift */; };
+		EE3B6831272AED7C00B9662C /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B6830272AED7C00B9662C /* GroupsViewController.swift */; };
+		EECD4ED52730418700AD9868 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD4ED42730418700AD9868 /* Group.swift */; };
 		FB01367A26F4DE7F00229053 /* CustomCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01367926F4DE7F00229053 /* CustomCell2.swift */; };
 		FB01C36926F236B80012B418 /* SelectedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01C36826F236B80012B418 /* SelectedClass.swift */; };
 		FB15CD1F26EA5073006698B6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15CD1E26EA5073006698B6 /* Schedule.swift */; };
@@ -58,7 +59,8 @@
 		A077006325EF088E00768FFD /* RandomStudentGeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomStudentGeneratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A077006725EF088E00768FFD /* RandomStudentGeneratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomStudentGeneratorUITests.swift; sourceTree = "<group>"; };
 		A077006925EF088E00768FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE3B6830272AED7C00B9662C /* GroupsClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsClass.swift; sourceTree = "<group>"; };
+		EE3B6830272AED7C00B9662C /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		EECD4ED42730418700AD9868 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FB01367926F4DE7F00229053 /* CustomCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell2.swift; sourceTree = "<group>"; };
 		FB01C36826F236B80012B418 /* SelectedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedClass.swift; sourceTree = "<group>"; };
 		FB15CD1E26EA5073006698B6 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -124,10 +126,11 @@
 				FB22A70E26E7B7580087EEF1 /* CreateClass.swift */,
 				FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */,
 				FB01C36826F236B80012B418 /* SelectedClass.swift */,
-				EE3B6830272AED7C00B9662C /* GroupsClass.swift */,
+				EE3B6830272AED7C00B9662C /* GroupsViewController.swift */,
 				FBCCD12E26FB7826007CF815 /* ClassSettings.swift */,
 				FB22A70A26E7B0820087EEF1 /* CustomCell.swift */,
 				FB01367926F4DE7F00229053 /* CustomCell2.swift */,
+				EECD4ED42730418700AD9868 /* Group.swift */,
 				FB15CD1E26EA5073006698B6 /* Schedule.swift */,
 				FB6F21EA26EB9E5F00592E33 /* MyClass.swift */,
 				A077004E25EF088E00768FFD /* Assets.xcassets */,
@@ -289,9 +292,10 @@
 				FB01C36926F236B80012B418 /* SelectedClass.swift in Sources */,
 				FB22A70926E7AF440087EEF1 /* MyClassesVC.swift in Sources */,
 				FB22A70F26E7B7580087EEF1 /* CreateClass.swift in Sources */,
+				EECD4ED52730418700AD9868 /* Group.swift in Sources */,
 				FB22A70B26E7B0820087EEF1 /* CustomCell.swift in Sources */,
 				FB6F21EB26EB9E5F00592E33 /* MyClass.swift in Sources */,
-				EE3B6831272AED7C00B9662C /* GroupsClass.swift in Sources */,
+				EE3B6831272AED7C00B9662C /* GroupsViewController.swift in Sources */,
 				A077004625EF088B00768FFD /* AppDelegate.swift in Sources */,
 				FB15CD1F26EA5073006698B6 /* Schedule.swift in Sources */,
 				FBCCD12F26FB7826007CF815 /* ClassSettings.swift in Sources */,
