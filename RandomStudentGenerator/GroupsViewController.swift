@@ -83,17 +83,15 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if greenTracker == 1 { // sort by groups
             numGroups = Int(array[row])!
             print(numGroups)
+        groupsClass = Group(students: randStudentsArray, numGroups: numGroups)
         } else if greenTracker == -1 { //sort by students
             numStudents = Int(array[row])!
             print(numStudents)
+        groupsClass = Group(students: randStudentsArray, numStudents: numStudents)
         }
         if numGroups > studentsArray.count {
             present(alert, animated: true, completion: nil)
         } else {
-        groupsClass = Group(students: randStudentsArray, numGroups: numGroups)
-//            print(groupsClass.groups[0])
-//            print(groupsClass.groups[1])
-//            print(groupsClass.groups[2])
         tableview.reloadData()
         }
         }
@@ -105,9 +103,12 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             return numGroups
         }
         else if greenTracker == -1 { //students
-return (studentsArray.count/numStudents)
+            if studentsArray.count % numStudents == 0 {
+                    return (studentsArray.count/numStudents)
+            } else {
+                return ((studentsArray.count/numStudents) + 1)
+            }
         }
-        
         return 0
     }
     

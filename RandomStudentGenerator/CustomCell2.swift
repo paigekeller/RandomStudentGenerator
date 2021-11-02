@@ -13,7 +13,7 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableview: UITableView!
 //    var totalGroups = 0 //assuming there are more students than groups
-    var colors: [UIColor] = [UIColor.blue, UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.purple, UIColor.brown, UIColor.systemPink, UIColor.white, UIColor.systemTeal, UIColor.gray, UIColor.cyan, UIColor.magenta, UIColor.darkGray]
+    var colors: [UIColor] = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.brown, UIColor.systemPink, UIColor.white, UIColor.systemTeal, UIColor.gray, UIColor.cyan, UIColor.magenta, UIColor.darkGray, UIColor.blue, UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.purple]
 //    var students: [String] = []
     var currentGroupNum = 0
 //    var leftover = 0 //number of students left over if they don't fit evenly into the groups
@@ -25,11 +25,8 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if (currentGroupNum+1) <= leftover {
-//            return ((students.count/totalGroups)+1)
-//        } else {
-//        return (students.count/totalGroups) //truncates
-//        }
+        print(groupsClass.groups[0])
+        print(groupsClass.groups[1])
         return groupsClass.groups[currentGroupNum].count
     }
     

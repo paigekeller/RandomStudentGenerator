@@ -41,7 +41,9 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableview.dataSource = self
         print(indexAt)
         addStudentAlert.addTextField()
-        let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: {action in
+            self.addStudentAlert.textFields![0].text = ""
+        })
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         let addAction = UIAlertAction(title: "Ok", style: .default, handler: {action in
             let newName = self.addStudentAlert.textFields![0].text!
@@ -85,6 +87,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     nvc.selectedClass = self.selectedClass
     nvc.indexAt = self.indexAt
     } else if segue.identifier == "toGroups" {
+        self.students = self.selectedClass.students
         let nvc = segue.destination as! GroupsViewController
         nvc.studentsArray = self.students
     }

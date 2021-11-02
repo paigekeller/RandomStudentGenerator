@@ -554,7 +554,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ML2-ca-2gK">
-                                                    <rect key="frame" x="8" y="11" width="72" height="52"/>
+                                                    <rect key="frame" x="8" y="11" width="87" height="52"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -586,7 +586,7 @@
                                                 </tableView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ML2-ca-2gK" secondAttribute="trailing" constant="334" id="Z0W-AG-wX9"/>
+                                                <constraint firstAttribute="trailing" secondItem="ML2-ca-2gK" secondAttribute="trailing" constant="319" id="Z0W-AG-wX9"/>
                                                 <constraint firstItem="z6b-iG-HBX" firstAttribute="top" secondItem="ML2-ca-2gK" secondAttribute="bottom" constant="8" id="au5-Dg-rwz"/>
                                                 <constraint firstItem="ML2-ca-2gK" firstAttribute="top" secondItem="ZDF-MW-eGH" secondAttribute="top" constant="11" id="eX4-9d-Kdx"/>
                                                 <constraint firstAttribute="bottom" secondItem="z6b-iG-HBX" secondAttribute="bottom" id="hlH-z9-8F8"/>
