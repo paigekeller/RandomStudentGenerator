@@ -32,9 +32,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        groupsBtn.backgroundColor = UIColor.systemBrown
-        groupsBtn.titleLabel?.font = UIFont(name: "Marker Felt", size: 13)
+
+        groupsBtn.setTitleColor(UIColor.white, for: .normal)
         
         classNameLabel.text = selectedClass.className
         tableview.delegate = self

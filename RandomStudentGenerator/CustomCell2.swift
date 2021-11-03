@@ -25,8 +25,6 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(groupsClass.groups[0])
-        print(groupsClass.groups[1])
         return groupsClass.groups[currentGroupNum].count
     }
     

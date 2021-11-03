@@ -10,6 +10,7 @@ import UIKit
 class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
 
     
+    @IBOutlet weak var reRandBtn: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var groupsBtn: UIButton!
@@ -22,7 +23,8 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var numStudents: Int = 0
     var studentsArray: [String] = []
     var randStudentsArray: [String] = []
-    let alert = UIAlertController(title: "Woops... \n It looks like you selected more groups than you have students!", message: nil, preferredStyle: .alert)
+    let alert = UIAlertController(title: "Woops... \n You don't have enough students for this number!", message: nil, preferredStyle: .alert)
+    var numPickerAt = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,6 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         print(randStudentsArray)
         
         picker.isHidden = true
-        groupsBtn.titleLabel?.font = UIFont(name: "Marker Felt", size: 20)
-        studentsBtn.titleLabel?.font = UIFont(name: "Marker Felt", size: 20)
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -49,7 +49,17 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if greenTracker == -1 || greenTracker == 0 {
             groupsBtn.backgroundColor = UIColor(red: 0.3, green: 1, blue: 0.70, alpha: 1)
             studentsBtn.backgroundColor = UIColor.systemTeal
+
+        }
+        if greenTracker != 0 && numPickerAt != 0 && greenTracker != 1 {
             
+                if numGroups > studentsArray.count || numStudents > studentsArray.count {
+                present(alert, animated: true, completion: nil)
+            } else {
+            groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
+            greenTracker = 1
+            tableview.reloadData()
+            }
         }
         picker.isHidden = false
             greenTracker = 1
@@ -61,9 +71,19 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             groupsBtn.backgroundColor = UIColor.systemTeal
             
         }
-        picker.isHidden = false
+        if greenTracker != 0 && numPickerAt != 0 && greenTracker != -1 {
+            
+            
+                if numGroups > studentsArray.count || numStudents > studentsArray.count {
+                present(alert, animated: true, completion: nil)
+                } else {
+            groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
             greenTracker = -1
-        
+            tableview.reloadData()
+            }
+        }
+        picker.isHidden = false
+        greenTracker = -1
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -79,34 +99,54 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        numPickerAt = row + 1
+        print(numPickerAt)
         if row != 0 {
         if greenTracker == 1 { // sort by groups
             numGroups = Int(array[row])!
             print(numGroups)
-        groupsClass = Group(students: randStudentsArray, numGroups: numGroups)
+            groupsClass = Group(students: randStudentsArray, numGroups: numGroups)
         } else if greenTracker == -1 { //sort by students
             numStudents = Int(array[row])!
             print(numStudents)
-        groupsClass = Group(students: randStudentsArray, numStudents: numStudents)
+            groupsClass = Group(students: randStudentsArray, numStudents: numStudents)
         }
-        if numGroups > studentsArray.count {
+            if numGroups > studentsArray.count || numStudents > studentsArray.count {
             present(alert, animated: true, completion: nil)
         } else {
         tableview.reloadData()
         }
+            
         }
+        
+        reRandBtn.isHidden = false
     }
 
+    @IBAction func reRandomize(_ sender: UIButton) {
+        
+        randStudentsArray = randStudentsArray.shuffled()
+        if greenTracker == -1 {
+        groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
+            tableview.reloadData()
+        } else if greenTracker == 1 {
+            groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
+            tableview.reloadData()
+        }
+       
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (greenTracker == 1) { //groups
-            return numGroups
+            return numPickerAt
         }
         else if greenTracker == -1 { //students
-            if studentsArray.count % numStudents == 0 {
-                    return (studentsArray.count/numStudents)
+            if studentsArray.count % numPickerAt == 0 {
+                    return (studentsArray.count/numPickerAt)
             } else {
-                return ((studentsArray.count/numStudents) + 1)
+                return ((studentsArray.count/numPickerAt) + 1)
             }
         }
         return 0
@@ -117,10 +157,6 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         
         cell.configure(group: groupsClass, groupNum: indexPath.row)
-
-        if greenTracker == -1 { //students/group
-            
-        }
         
         return cell
     }
