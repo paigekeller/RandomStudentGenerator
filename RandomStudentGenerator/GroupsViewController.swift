@@ -53,7 +53,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         if greenTracker != 0 && numPickerAt != 0 && greenTracker != 1 {
             
-                if numGroups > studentsArray.count || numStudents > studentsArray.count {
+                if numPickerAt > studentsArray.count {
                 present(alert, animated: true, completion: nil)
             } else {
             groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
@@ -74,7 +74,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if greenTracker != 0 && numPickerAt != 0 && greenTracker != -1 {
             
             
-                if numGroups > studentsArray.count || numStudents > studentsArray.count {
+                if numPickerAt > studentsArray.count {
                 present(alert, animated: true, completion: nil)
                 } else {
             groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
@@ -105,13 +105,13 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if greenTracker == 1 { // sort by groups
             numGroups = Int(array[row])!
             print(numGroups)
-            groupsClass = Group(students: randStudentsArray, numGroups: numGroups)
+            groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
         } else if greenTracker == -1 { //sort by students
             numStudents = Int(array[row])!
             print(numStudents)
-            groupsClass = Group(students: randStudentsArray, numStudents: numStudents)
+            groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
         }
-            if numGroups > studentsArray.count || numStudents > studentsArray.count {
+            if numPickerAt > studentsArray.count {
             present(alert, animated: true, completion: nil)
         } else {
         tableview.reloadData()
