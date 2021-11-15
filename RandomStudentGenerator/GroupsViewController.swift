@@ -10,6 +10,7 @@ import UIKit
 class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
 
     
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     @IBOutlet weak var reRandBtn: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var tableview: UITableView!
@@ -17,7 +18,8 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var studentsBtn: UIButton!
     var greenTracker = 0
-    var groupsClass = Group()
+    var swap: Bool = false
+    static var groupsClass = Group()
     var array = ["Number Of Groups/Students","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
     var numGroups: Int = 0
     var numStudents: Int = 0
@@ -25,6 +27,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var randStudentsArray: [String] = []
     let alert = UIAlertController(title: "Woops... \n You don't have enough students for this number!", message: nil, preferredStyle: .alert)
     var numPickerAt = 0
+    static var selected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +59,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 if numPickerAt > studentsArray.count {
                 present(alert, animated: true, completion: nil)
             } else {
-            groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
+                GroupsViewController.groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
             greenTracker = 1
             tableview.reloadData()
             }
@@ -77,7 +80,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 if numPickerAt > studentsArray.count {
                 present(alert, animated: true, completion: nil)
                 } else {
-            groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
+                    GroupsViewController.groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
             greenTracker = -1
             tableview.reloadData()
             }
@@ -105,11 +108,11 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         if greenTracker == 1 { // sort by groups
             numGroups = Int(array[row])!
             print(numGroups)
-            groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
+            GroupsViewController.groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
         } else if greenTracker == -1 { //sort by students
             numStudents = Int(array[row])!
             print(numStudents)
-            groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
+            GroupsViewController.groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
         }
             if numPickerAt > studentsArray.count {
             present(alert, animated: true, completion: nil)
@@ -126,14 +129,25 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         randStudentsArray = randStudentsArray.shuffled()
         if greenTracker == -1 {
-        groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
+            GroupsViewController.groupsClass = Group(students: randStudentsArray, numStudents: numPickerAt)
             tableview.reloadData()
         } else if greenTracker == 1 {
-            groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
+            GroupsViewController.groupsClass = Group(students: randStudentsArray, numGroups: numPickerAt)
             tableview.reloadData()
         }
        
     }
+
+    
+    @IBAction func tapAction(_ sender: UITapGestureRecognizer) {
+        print("TAPPED!")
+        if (GroupsViewController.selected == true ) {
+            tableview.reloadData()
+            print("reloaded")
+            GroupsViewController.selected = false
+        }
+    }
+    
     
     
     
@@ -156,10 +170,12 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let cell = tableview.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell2
         
         
-        cell.configure(group: groupsClass, groupNum: indexPath.row)
+        cell.configure(group: GroupsViewController.groupsClass, groupNum: indexPath.row)
         
         return cell
     }
+    
+    
     
     
 }

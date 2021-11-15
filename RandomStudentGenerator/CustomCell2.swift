@@ -12,17 +12,14 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var groupLabel: UILabel!
     
     @IBOutlet weak var tableview: UITableView!
-//    var totalGroups = 0 //assuming there are more students than groups
+    static var swap: Bool = false
+    
+    
     var colors: [UIColor] = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.brown, UIColor.systemPink, UIColor.white, UIColor.systemTeal, UIColor.gray, UIColor.cyan, UIColor.magenta, UIColor.darkGray, UIColor.blue, UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.purple]
-//    var students: [String] = []
     var currentGroupNum = 0
-//    var leftover = 0 //number of students left over if they don't fit evenly into the groups
-//    //going to put the left over students in groups starting from group 1 then going down
-//    var LOAccountedFor: Int!
     var groupsClass = Group()
     
-    
-    
+     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groupsClass.groups[currentGroupNum].count
@@ -40,19 +37,50 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+        //swap
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+    //SWAP STUDENT ACTION
+    let swapAction = UITableViewRowAction(style: .normal, title: "Swap", handler: {action, indexPath in
+        CustomCell2.swap = true
+        self.groupsClass.swapIndx.0 = indexPath.row
+        self.groupsClass.swapGroupNum.0 = self.currentGroupNum
+        })
+    
+       swapAction.backgroundColor = UIColor.black
+       
+        return [swapAction]
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        print(CustomCell2.swap)
+        if CustomCell2.swap == true {
+        groupsClass.swapIndx.1 = indexPath.row
+        self.groupsClass.swapGroupNum.1 = currentGroupNum
+        print(groupsClass.swapIndx)
+        print(groupsClass.swapGroupNum)
+            groupsClass.swap()
+            CustomCell2.swap = false
+            print("CELL SELECTED")
+            GroupsViewController.groupsClass = self.groupsClass
+            GroupsViewController.selected = true
+        }
+    }
+        
+    
     func configure(group: Group, groupNum: Int) {
         
-        currentGroupNum = groupNum
+        currentGroupNum = groupNum //lower number
         groupsClass = group
-//        students = s
-//        totalGroups = tg
-//        self.currentGroupNum = groupNum-1
         tableview.delegate = self
         tableview.dataSource = self
         groupLabel.text = "Group: \(groupNum + 1)"
         groupLabel.backgroundColor = colors[groupNum]
-//        leftover = (students.count % totalGroups)
-//        LOAccountedFor = leftover - currentGroupNum
         tableview.reloadData()
     }
 }

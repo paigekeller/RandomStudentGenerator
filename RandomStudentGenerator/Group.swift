@@ -10,7 +10,8 @@ import UIKit
 
 class Group {
     var groups: [[String]] = []
-    
+    var swapIndx: (Int, Int) = (0, 0) //first int is OG index, second int is swapping index
+    var swapGroupNum: (Int, Int) = (0, 0) //first int = first group num
     
 //groups init
     init(students: [String], numGroups: Int) { // numGroups is actual number of groups
@@ -60,9 +61,6 @@ class Group {
             i += 1
         }
     } //bottom of init
-    
-    
-    
     
     
  //students init
@@ -132,6 +130,39 @@ class Group {
     init() {
         
     }
+    
+    func swap() {
+        var temp = "" // first name
+        var temp2 = ""
+        var i = 0
+        
+        while (i < groups[swapGroupNum.0].count) {
+            if i == swapIndx.0 {
+                temp = groups[swapGroupNum.0][i]
+            }
+            i += 1
+        }
+        
+        i = 0
+        while (i < groups[swapGroupNum.1].count) {
+            if i == swapIndx.1 {
+                temp2 = groups[swapGroupNum.1][i] // second name
+               groups[swapGroupNum.1][swapIndx.1] = temp
+            
+            }
+            i += 1
+        }
+        
+        i = 0
+        while (i < groups[swapGroupNum.0].count) {
+            if i == swapIndx.0 {
+                groups[swapGroupNum.0][i] = temp2
+            }
+            i += 1
+        }
+     print("Swapped!!")
+    }
+    
     
     
 }

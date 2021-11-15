@@ -636,6 +636,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xlM-Lv-JxM"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="f4u-1D-OZp" firstAttribute="top" secondItem="HX1-C6-a01" secondAttribute="bottom" constant="10" id="3QF-ae-DFo"/>
                             <constraint firstItem="07I-Cn-N4Q" firstAttribute="top" secondItem="HX1-C6-a01" secondAttribute="bottom" constant="28" id="41c-rl-3yj"/>
@@ -671,6 +672,9 @@
                             <constraint firstItem="f4u-1D-OZp" firstAttribute="leading" secondItem="xlM-Lv-JxM" secondAttribute="leading" constant="30" id="x5Q-rP-Wax"/>
                             <constraint firstItem="xlM-Lv-JxM" firstAttribute="trailing" secondItem="lYS-ge-jEr" secondAttribute="trailing" constant="30" id="y5I-y1-xOo"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DnS-o0-Wp4" appends="YES" id="a0M-pd-4pe"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="fxV-Vb-ZJ9">
                         <leftBarButtonItems>
@@ -694,10 +698,16 @@
                         <outlet property="reRandBtn" destination="40f-g8-s1g" id="prD-nu-6wc"/>
                         <outlet property="studentsBtn" destination="lYS-ge-jEr" id="bd9-Ev-tmz"/>
                         <outlet property="tableview" destination="rjf-il-R2K" id="swj-SN-Ol4"/>
+                        <outlet property="tapRecognizer" destination="DnS-o0-Wp4" id="S1r-XA-QYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9J-E0-QeA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="6D2-xK-KtV" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="DnS-o0-Wp4">
+                    <connections>
+                        <action selector="tapAction:" destination="AmZ-WW-EKg" id="26q-Fg-WMW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4540.579710144928" y="81.696428571428569"/>
         </scene>
