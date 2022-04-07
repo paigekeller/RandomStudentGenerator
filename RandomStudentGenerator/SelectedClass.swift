@@ -20,6 +20,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var randBtn: UIButton!
     @IBOutlet weak var groupsBtn: UIButton!
+    var temp: [NSData?] = []
     
     var num = 0
     var selectedClass: MyClass = MyClass()
@@ -70,6 +71,9 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         addStudentAlert.addAction(cancelAct)
         addStudentAlert.addAction(addAction)
         alert.addAction(okAction)
+        
+        
+        classNameLabel.backgroundColor = UserDefaults.standard.colorForKey(data: temp[indexAt])
         
     }
     
@@ -237,6 +241,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         cell.textLabel?.text = selectedClass.students[indexPath.row]
         
+        //cell.backgroundColor = UserDefaults.standard.colorForKey(data: temp[indexAt])
     
         
         return cell

@@ -17,6 +17,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var groupsBtn: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var studentsBtn: UIButton!
+    @IBOutlet weak var saveBtn: UIButton!
     var greenTracker = 0
     var swap: Bool = false
     static var groupsClass = Group()
@@ -123,6 +124,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         
         reRandBtn.isHidden = false
+        saveBtn.isHidden = false
     }
 
     @IBAction func reRandomize(_ sender: UIButton) {
@@ -173,6 +175,12 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         cell.configure(group: GroupsViewController.groupsClass, groupNum: indexPath.row)
         
         return cell
+    }
+    
+    @IBAction func saveAction(_ sender: UIButton) {
+        
+   
+        
     }
     
     

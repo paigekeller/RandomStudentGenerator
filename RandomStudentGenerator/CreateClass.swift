@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 14.0, *)
 class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
 
@@ -169,7 +170,15 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
         performSegue(withIdentifier: "toMyClasses", sender: nil)
         }
     }
-        
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMyClasses" {
+        let nvc = segue.destination as! MyClassesVC
+            nvc.fromNewClass = true
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return studentsArray.count

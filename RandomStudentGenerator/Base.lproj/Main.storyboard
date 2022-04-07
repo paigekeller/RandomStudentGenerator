@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kso-PL-UHS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kso-PL-UHS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -246,13 +246,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko4-yv-Zzz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="84"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="84"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EVX-da-hKP">
-                                <rect key="frame" x="0.0" y="128" width="414" height="662"/>
+                                <rect key="frame" x="0.0" y="172" width="414" height="667"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="70" reuseIdentifier="myCell" rowHeight="110" id="GoZ-tl-I80" customClass="CustomCell" customModule="RandomStudentGenerator" customModuleProvider="target">
@@ -263,26 +263,38 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSp-Vy-OUf">
-                                                    <rect key="frame" x="12" y="5" width="382" height="41"/>
+                                                    <rect key="frame" x="12" y="5" width="351" height="41"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Students" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-Nq-eIq">
-                                                    <rect key="frame" x="12" y="46" width="382" height="39"/>
+                                                    <rect key="frame" x="12" y="46" width="351" height="39"/>
                                                     <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="18"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLd-V0-xT9">
+                                                    <rect key="frame" x="363" y="36" width="51" height="38"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="paintbrush.pointed.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="paintAction:" destination="GoZ-tl-I80" eventType="touchUpInside" id="vWy-xI-QtH"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="tLd-V0-xT9" secondAttribute="bottom" constant="36" id="75e-hm-RSh"/>
+                                                <constraint firstItem="tLd-V0-xT9" firstAttribute="leading" secondItem="NVF-Nq-eIq" secondAttribute="trailing" id="E4A-Sg-0N2"/>
                                                 <constraint firstItem="NVF-Nq-eIq" firstAttribute="leading" secondItem="CJM-si-H4b" secondAttribute="leading" constant="12" id="EMz-e7-LZH"/>
-                                                <constraint firstAttribute="trailing" secondItem="NVF-Nq-eIq" secondAttribute="trailing" constant="20" id="I1B-HI-m6Z"/>
+                                                <constraint firstAttribute="trailing" secondItem="tLd-V0-xT9" secondAttribute="trailing" id="HpS-7l-ied"/>
                                                 <constraint firstAttribute="bottom" secondItem="gSp-Vy-OUf" secondAttribute="bottom" constant="64" id="KSu-L9-vbb"/>
-                                                <constraint firstAttribute="trailing" secondItem="gSp-Vy-OUf" secondAttribute="trailing" constant="20" id="W8a-PZ-Edh"/>
+                                                <constraint firstItem="tLd-V0-xT9" firstAttribute="width" secondItem="CJM-si-H4b" secondAttribute="width" multiplier="0.123188" id="N0J-NE-4FY"/>
+                                                <constraint firstItem="tLd-V0-xT9" firstAttribute="top" secondItem="CJM-si-H4b" secondAttribute="top" constant="36" id="SfM-dE-clc"/>
                                                 <constraint firstItem="gSp-Vy-OUf" firstAttribute="leading" secondItem="CJM-si-H4b" secondAttribute="leading" constant="12" id="XcL-hW-DNf"/>
                                                 <constraint firstAttribute="bottom" secondItem="NVF-Nq-eIq" secondAttribute="bottom" constant="25" id="eGB-xp-Oxr"/>
                                                 <constraint firstItem="gSp-Vy-OUf" firstAttribute="top" secondItem="CJM-si-H4b" secondAttribute="top" constant="5" id="osw-nD-dgW"/>
+                                                <constraint firstItem="tLd-V0-xT9" firstAttribute="leading" secondItem="gSp-Vy-OUf" secondAttribute="trailing" id="qlt-bk-9jh"/>
                                                 <constraint firstItem="NVF-Nq-eIq" firstAttribute="top" secondItem="gSp-Vy-OUf" secondAttribute="bottom" id="r2H-Gr-Mre"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -290,6 +302,7 @@
                                         <connections>
                                             <outlet property="classNameOutlet" destination="gSp-Vy-OUf" id="S9q-na-rhf"/>
                                             <outlet property="numStudentsOutlet" destination="NVF-Nq-eIq" id="vgA-cm-G65"/>
+                                            <outlet property="paintBtn" destination="tLd-V0-xT9" id="NCK-4k-EM0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -334,16 +347,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spotlight" translatesAutoresizingMaskIntoConstraints="NO" id="diM-O9-U87">
-                                <rect key="frame" x="20" y="281" width="93" height="82"/>
+                                <rect key="frame" x="20" y="325" width="93" height="82"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piN-Ei-jEs">
-                                <rect key="frame" x="0.0" y="415.5" width="414" height="36.5"/>
+                                <rect key="frame" x="0.0" y="459.5" width="414" height="36.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="91g-wT-W4h">
-                                <rect key="frame" x="20" y="456" width="374" height="406"/>
+                                <rect key="frame" x="20" y="500" width="374" height="362"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="cOY-hs-oxL" style="IBUITableViewCellStyleDefault" id="I2w-Z7-lKX">
@@ -366,7 +379,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-Kk-apd">
-                                <rect key="frame" x="133" y="157" width="148" height="141"/>
+                                <rect key="frame" x="133" y="201" width="148" height="141"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bDZ-Kk-apd" secondAttribute="height" multiplier="148:141" id="wdL-Fw-K90"/>
@@ -379,14 +392,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QX7-EX-EzO">
-                                <rect key="frame" x="0.0" y="72" width="414" height="65"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puA-kr-PYl">
-                                <rect key="frame" x="132.5" y="302" width="149" height="31"/>
+                                <rect key="frame" x="132.5" y="346" width="149" height="31"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -404,7 +417,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxa-sC-sYg">
-                                <rect key="frame" x="359" y="421" width="35" height="31"/>
+                                <rect key="frame" x="359" y="465" width="35" height="31"/>
                                 <state key="normal" image="plus" catalog="system"/>
                                 <connections>
                                     <action selector="addAction:" destination="RoY-MN-itu" eventType="touchUpInside" id="p33-hG-oS2"/>
@@ -492,21 +505,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpE-Uh-TFe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="72"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="72"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HX1-C6-a01">
-                                <rect key="frame" x="0.0" y="148" width="414" height="22"/>
+                                <rect key="frame" x="0.0" y="192" width="414" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-1D-OZp">
-                                <rect key="frame" x="30" y="180" width="135" height="58"/>
+                                <rect key="frame" x="30" y="224" width="135" height="58"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -514,6 +527,7 @@
                                         <fragment content="Number of Groups">
                                             <attributes>
                                                 <font key="NSFont" size="18" name="MarkerFelt-Thin"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -524,14 +538,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYS-ge-jEr">
-                                <rect key="frame" x="249" y="180" width="135" height="58"/>
+                                <rect key="frame" x="249" y="224" width="135" height="58"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Students Per Group">
                                             <attributes>
+                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <font key="NSFont" size="18" name="MarkerFelt-Thin"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -542,10 +558,10 @@
                                 </connections>
                             </button>
                             <pickerView hidden="YES" tag="15" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQo-3b-Nzb">
-                                <rect key="frame" x="0.0" y="230" width="414" height="119"/>
+                                <rect key="frame" x="0.0" y="274" width="414" height="119"/>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="204" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rjf-il-R2K">
-                                <rect key="frame" x="0.0" y="359" width="414" height="537"/>
+                                <rect key="frame" x="0.0" y="403" width="414" height="493"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="204" id="L8Y-rb-LMV" customClass="CustomCell2" customModule="RandomStudentGenerator" customModuleProvider="target">
@@ -609,7 +625,7 @@
                                 </prototypes>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40f-g8-s1g">
-                                <rect key="frame" x="279" y="316" width="127" height="35"/>
+                                <rect key="frame" x="279" y="360" width="127" height="35"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -627,12 +643,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07I-Cn-N4Q">
-                                <rect key="frame" x="0.0" y="198" width="414" height="26"/>
+                                <rect key="frame" x="0.0" y="242" width="414" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9k-jf-ueN">
+                                <rect key="frame" x="5" y="372" width="61" height="26"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="save"/>
+                                <connections>
+                                    <action selector="saveAction:" destination="AmZ-WW-EKg" eventType="touchUpInside" id="1wT-9x-fXl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xlM-Lv-JxM"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -644,6 +668,9 @@
                             <constraint firstItem="XQo-3b-Nzb" firstAttribute="height" secondItem="7Yv-OW-GNK" secondAttribute="height" multiplier="0.132812" id="4VP-ue-HAJ"/>
                             <constraint firstItem="rjf-il-R2K" firstAttribute="leading" secondItem="xlM-Lv-JxM" secondAttribute="leading" id="6nc-my-2HD"/>
                             <constraint firstItem="07I-Cn-N4Q" firstAttribute="leading" secondItem="xlM-Lv-JxM" secondAttribute="leading" id="88x-oJ-Way"/>
+                            <constraint firstItem="40f-g8-s1g" firstAttribute="leading" secondItem="y9k-jf-ueN" secondAttribute="trailing" constant="213" id="CFf-Xt-9MB"/>
+                            <constraint firstItem="y9k-jf-ueN" firstAttribute="leading" secondItem="xlM-Lv-JxM" secondAttribute="leading" constant="5" id="DHS-Zo-h75"/>
+                            <constraint firstItem="rjf-il-R2K" firstAttribute="top" secondItem="y9k-jf-ueN" secondAttribute="bottom" constant="5" id="EL8-mh-h2d"/>
                             <constraint firstItem="RpE-Uh-TFe" firstAttribute="height" secondItem="7Yv-OW-GNK" secondAttribute="height" multiplier="0.0803571" id="EWc-iS-RHA"/>
                             <constraint firstItem="lYS-ge-jEr" firstAttribute="width" secondItem="7Yv-OW-GNK" secondAttribute="width" multiplier="0.326087" id="GR2-c3-DSb"/>
                             <constraint firstItem="HX1-C6-a01" firstAttribute="top" secondItem="RpE-Uh-TFe" secondAttribute="bottom" constant="32" id="HpY-K4-t3l"/>
@@ -669,6 +696,7 @@
                             <constraint firstItem="XQo-3b-Nzb" firstAttribute="trailing" secondItem="xlM-Lv-JxM" secondAttribute="trailing" id="hWz-Sw-r9t"/>
                             <constraint firstItem="rjf-il-R2K" firstAttribute="trailing" secondItem="xlM-Lv-JxM" secondAttribute="trailing" id="lDB-jN-723"/>
                             <constraint firstItem="HX1-C6-a01" firstAttribute="leading" secondItem="xlM-Lv-JxM" secondAttribute="leading" id="m9f-UY-21d"/>
+                            <constraint firstItem="y9k-jf-ueN" firstAttribute="height" secondItem="7Yv-OW-GNK" secondAttribute="height" multiplier="0.0290179" id="pH5-PY-Vxc"/>
                             <constraint firstItem="f4u-1D-OZp" firstAttribute="leading" secondItem="xlM-Lv-JxM" secondAttribute="leading" constant="30" id="x5Q-rP-Wax"/>
                             <constraint firstItem="xlM-Lv-JxM" firstAttribute="trailing" secondItem="lYS-ge-jEr" secondAttribute="trailing" constant="30" id="y5I-y1-xOo"/>
                         </constraints>
@@ -696,6 +724,7 @@
                         <outlet property="picker" destination="XQo-3b-Nzb" id="bFy-gg-Vk0"/>
                         <outlet property="pickerView" destination="XQo-3b-Nzb" id="Bce-LT-M2Q"/>
                         <outlet property="reRandBtn" destination="40f-g8-s1g" id="prD-nu-6wc"/>
+                        <outlet property="saveBtn" destination="y9k-jf-ueN" id="dAL-cJ-aIj"/>
                         <outlet property="studentsBtn" destination="lYS-ge-jEr" id="bd9-Ev-tmz"/>
                         <outlet property="tableview" destination="rjf-il-R2K" id="swj-SN-Ol4"/>
                         <outlet property="tapRecognizer" destination="DnS-o0-Wp4" id="S1r-XA-QYL"/>
@@ -710,6 +739,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4540.579710144928" y="81.696428571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jE1-SD-mE0">
+            <objects>
+                <viewController id="r5g-R2-Ceq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="je5-dA-lbs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SH9-d1-DlU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qb5-bF-8j6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5386" y="95"/>
         </scene>
         <!--Class Settings-->
         <scene sceneID="nhi-He-waw">
@@ -731,16 +775,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpU-0A-R5Y">
-                                <rect key="frame" x="0.0" y="44" width="414" height="142"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="142"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="VzQ-uS-Vrm">
-                                <rect key="frame" x="10" y="280" width="394" height="288"/>
+                                <rect key="frame" x="10" y="324" width="394" height="244"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgc-PF-g2K">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="51.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Change Randomize Settings">
@@ -751,7 +795,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6j-t4-90M">
-                                        <rect key="frame" x="0.0" y="111" width="394" height="66"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="394" height="51"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Edit Class Name">
@@ -762,7 +806,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-ut-j4h">
-                                        <rect key="frame" x="0.0" y="222" width="394" height="66"/>
+                                        <rect key="frame" x="0.0" y="192.5" width="394" height="51.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Delete Class">
@@ -840,7 +884,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GQz-sF-6Mu"/>
+        <segue reference="92I-7t-4Oq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
@@ -848,6 +892,7 @@
         <image name="dice" width="512" height="512"/>
         <image name="fullRandBtn" width="448" height="430"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="paintbrush.pointed.fill" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="spotlight" width="380" height="230"/>
         <systemColor name="systemBackgroundColor">
