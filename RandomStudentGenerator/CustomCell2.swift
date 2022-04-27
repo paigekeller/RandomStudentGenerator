@@ -47,8 +47,8 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     //SWAP STUDENT ACTION
     let swapAction = UITableViewRowAction(style: .normal, title: "Swap", handler: {action, indexPath in
         CustomCell2.swap = true
-        self.groupsClass.swapIndx.0 = indexPath.row
-        self.groupsClass.swapGroupNum.0 = self.currentGroupNum
+        self.groupsClass.swapOGindx = indexPath.row
+        self.groupsClass.swapOGindx = self.currentGroupNum
         })
     
        swapAction.backgroundColor = UIColor.black
@@ -60,14 +60,14 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         print(CustomCell2.swap)
         if CustomCell2.swap == true {
-        groupsClass.swapIndx.1 = indexPath.row
-        self.groupsClass.swapGroupNum.1 = currentGroupNum
-        print(groupsClass.swapIndx)
-        print(groupsClass.swapGroupNum)
+        groupsClass.swapSecondindx = indexPath.row
+        self.groupsClass.swapSecondindx = currentGroupNum
+        print(groupsClass.swapOGindx)
+        //print(groupsClass.swapGroupNum) 
             groupsClass.swap()
             CustomCell2.swap = false
             print("CELL SELECTED")
-            GroupsViewController.groupsClass = self.groupsClass
+            GroupsViewController.newGroup = self.groupsClass
             GroupsViewController.selected = true
         }
     }
@@ -77,6 +77,18 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
         
         currentGroupNum = groupNum //lower number
         groupsClass = group
+        tableview.delegate = self
+        tableview.dataSource = self
+        groupLabel.text = "Group: \(groupNum + 1)"
+        groupLabel.backgroundColor = colors[groupNum]
+        tableview.reloadData()
+    }
+    
+    func configure(g: Group, groupNum: Int, word: String) {
+        //config for group already made
+        
+        groupsClass = g
+        currentGroupNum = groupNum //lower number
         tableview.delegate = self
         tableview.dataSource = self
         groupLabel.text = "Group: \(groupNum + 1)"

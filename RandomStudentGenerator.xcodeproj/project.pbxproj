@@ -27,6 +27,7 @@
 		EE94C44A27C53CCF0021AE26 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = EE94C44927C53CCF0021AE26 /* FirebaseFirestoreSwift-Beta */; };
 		EE94C44C27C53CCF0021AE26 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EE94C44B27C53CCF0021AE26 /* FirebaseStorage */; };
 		EECD4ED52730418700AD9868 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECD4ED42730418700AD9868 /* Group.swift */; };
+		EEE31C2F27FF31A400B23B7F /* GroupsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE31C2E27FF31A400B23B7F /* GroupsListVC.swift */; };
 		FB01367A26F4DE7F00229053 /* CustomCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01367926F4DE7F00229053 /* CustomCell2.swift */; };
 		FB01C36926F236B80012B418 /* SelectedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01C36826F236B80012B418 /* SelectedClass.swift */; };
 		FB15CD1F26EA5073006698B6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15CD1E26EA5073006698B6 /* Schedule.swift */; };
@@ -72,6 +73,7 @@
 		EE3B6830272AED7C00B9662C /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		EE94C43A27BEA26D0021AE26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EECD4ED42730418700AD9868 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		EEE31C2E27FF31A400B23B7F /* GroupsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListVC.swift; sourceTree = "<group>"; };
 		FB01367926F4DE7F00229053 /* CustomCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell2.swift; sourceTree = "<group>"; };
 		FB01C36826F236B80012B418 /* SelectedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedClass.swift; sourceTree = "<group>"; };
 		FB15CD1E26EA5073006698B6 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				FB22A70826E7AF440087EEF1 /* MyClassesVC.swift */,
 				FB01C36826F236B80012B418 /* SelectedClass.swift */,
 				EE3B6830272AED7C00B9662C /* GroupsViewController.swift */,
+				EEE31C2E27FF31A400B23B7F /* GroupsListVC.swift */,
 				FBCCD12E26FB7826007CF815 /* ClassSettings.swift */,
 				FB22A70A26E7B0820087EEF1 /* CustomCell.swift */,
 				FB01367926F4DE7F00229053 /* CustomCell2.swift */,
@@ -284,8 +287,7 @@
 				A077005725EF088E00768FFD /* RandomStudentGeneratorTests */,
 				A077006225EF088E00768FFD /* RandomStudentGeneratorUITests */,
 			);
-            
-};
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -325,6 +327,7 @@
 			files = (
 				A077004A25EF088B00768FFD /* ViewController.swift in Sources */,
 				FB01C36926F236B80012B418 /* SelectedClass.swift in Sources */,
+				EEE31C2F27FF31A400B23B7F /* GroupsListVC.swift in Sources */,
 				FB22A70926E7AF440087EEF1 /* MyClassesVC.swift in Sources */,
 				FB22A70F26E7B7580087EEF1 /* CreateClass.swift in Sources */,
 				EECD4ED52730418700AD9868 /* Group.swift in Sources */,

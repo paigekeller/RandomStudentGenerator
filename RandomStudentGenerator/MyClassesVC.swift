@@ -7,24 +7,61 @@
 
 import UIKit
 
-class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+extension UserDefaults {
+    func setColor(color: UIColor?) -> NSData? {
+        var colorData: NSData?
+        if let color = color {
+            do {
+                colorData = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false ) as NSData?
+                return colorData
+//                set(colorData, forKey: key)
+            } catch let err {
+                print("error archiving colorData", err)
+            }
+        }
+        return colorData
+    }
+    
+    func colorForKey(data: NSData?) -> UIColor? {
+        var color: UIColor?
+        do {
+            color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: data! as Data)
+        } catch let err {
+            print("error unarchiving colorData", err)
+        }
+        return color
+    }
+    
+}
+
+
+
+
+@available(iOS 14.0, *)
+class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIColorPickerViewControllerDelegate {
     
     @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var createClassBtn: UIButton!
     
     let defaults = UserDefaults()
     var classes: [MyClass] = [] //decoding from user defualts and resaving
+    var classColors: [UIColor] = [] //parallel array to ^
+    var temp: [NSData?] = []
     var selectedClass: MyClass!
     var indexAt: Int!
+    static var cellInd: Int = 0
+    var fromNewClass: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+       // UserDefaults.standard.removeObject(forKey: "classArray")
+        
         tableview.delegate = self
         tableview.dataSource = self
-        
-        
+
     }
+    
     
     @IBAction func unwindToMyClasses(_seg: UIStoryboardSegue) {
         print("unwinding home")
@@ -32,7 +69,9 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
     override func viewWillAppear(_ animated: Bool) {
-      classes = []
+        classes = []
+        classColors = []
+       
         do {
         let decoder = JSONDecoder()
             if let usdf = UserDefaults.standard.array(forKey: "classArray") {
@@ -49,6 +88,40 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         } catch {
             print("Error handing try")
         }
+   
+        
+        if UserDefaults.standard.array(forKey: "colors") == nil { //if it doesn't exist
+            print("INSIDE DOESNT EXIST")
+            for _ in classes {
+                classColors.append(UIColor.white) //making an all white array
+            }
+                for each in classColors { //setting each color to data
+                    temp.append(UserDefaults.standard.setColor(color: each))
+                    print("here")
+                }
+                UserDefaults.standard.set(temp, forKey: "colors")
+                print("saved!")
+            temp = UserDefaults.standard.array(forKey: "colors") as! [NSData]
+        } else if fromNewClass == true {
+            temp = UserDefaults.standard.array(forKey: "colors") as! [NSData]
+            temp.append(UserDefaults.standard.setColor(color: UIColor.white))
+            print("here")
+            UserDefaults.standard.set(temp, forKey: "colors")
+            fromNewClass = false
+            for each in temp {
+                classColors.append(UserDefaults.standard.colorForKey(data: each)!)
+            }
+        } else {
+            print("INSIDE ELSEEEE")
+            temp = UserDefaults.standard.array(forKey: "colors") as! [NSData]
+            for each in temp {
+                classColors.append(UserDefaults.standard.colorForKey(data: each)!)
+            }
+        }
+        
+        
+        print("HJDgXCHIUJKHWJIU")
+        print(temp.count)
         tableview.reloadData()
     }
     
@@ -67,6 +140,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             let nvc = segue.destination as! SelectedClass
             nvc.selectedClass = self.selectedClass
             nvc.indexAt = self.indexAt
+            nvc.temp = self.temp
         }
     }
 
@@ -79,10 +153,73 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableview.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell
         
-        cell.configure(name: classes[indexPath.row].className, number: classes[indexPath.row].students.count)
+        cell.configure(name: classes[indexPath.row].className, number: classes[indexPath.row].students.count, index: indexPath.row)
         
+        cell.paintBtn.addTarget(self, action: #selector(didTapSelectColor), for: .touchUpInside)
+
+        //decode ud here
+        print(temp.count)
+        print(classes.count)
+        cell.backgroundColor = UserDefaults.standard.colorForKey(data: temp[indexPath.row])
+       
         
         return cell
     }
+
+    @objc private func didTapSelectColor() {
+        let colorPickerVC = UIColorPickerViewController()
+        colorPickerVC.delegate = self
+        present(colorPickerVC, animated: true)
+    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        let color = viewController.selectedColor
+        
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        let color = viewController.selectedColor
+        print(MyClassesVC.cellInd)
+        
+        classColors[MyClassesVC.cellInd] = color
+        
+        temp = []
+        for each in classColors { //setting each color to data
+            temp.append(UserDefaults.standard.setColor(color: each))
+        }
+        UserDefaults.standard.set(temp, forKey: "colors")
+        print("saved!")
+        tableview.reloadData()
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        print("I am here")
+        return true
+        
+    }
+    
+//moving cells
+     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+         
+         //have to get the class
+         let classToMove = classes[sourceIndexPath.row]
+         let colorToMove = classColors[sourceIndexPath.row]
+         
+         //add class to new spot
+         classes.insert(classToMove, at: destinationIndexPath.row)
+         classColors.insert(colorToMove, at: destinationIndexPath.row)
+         
+         //delete old class location
+         classes.remove(at: sourceIndexPath.row)
+         classColors.remove(at: sourceIndexPath.row)
+         
+         //UserDefaults.standard.set(classes)
+         
+         tableView.reloadData()
+    }
+    
+    
     
 }

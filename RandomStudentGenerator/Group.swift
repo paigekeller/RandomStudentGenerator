@@ -8,10 +8,17 @@
 import Foundation
 import UIKit
 
-class Group {
+class Group: Codable {
+    var name: String = ""
     var groups: [[String]] = []
-    var swapIndx: (Int, Int) = (0, 0) //first int is OG index, second int is swapping index
-    var swapGroupNum: (Int, Int) = (0, 0) //first int = first group num
+    //var swapIndx: (Int, Int) = (0, 0) //first int is OG index, second int is swapping index
+    //var swapGroupNum: (Int, Int) = (0, 0) //first int = first group num
+    
+    var swapOGindx: Int = 0
+    var swapSecondindx: Int = 0
+    
+    var swapOGGroupNum: Int = 0
+    var swapNewGroupNum: Int = 0
     
 //groups init
     init(students: [String], numGroups: Int) { // numGroups is actual number of groups
@@ -136,27 +143,27 @@ class Group {
         var temp2 = ""
         var i = 0
         
-        while (i < groups[swapGroupNum.0].count) {
-            if i == swapIndx.0 {
-                temp = groups[swapGroupNum.0][i]
+        while (i < groups[swapOGindx].count) {
+            if i == swapOGindx {
+                temp = groups[swapOGindx][i]
             }
             i += 1
         }
         
         i = 0
-        while (i < groups[swapGroupNum.1].count) {
-            if i == swapIndx.1 {
-                temp2 = groups[swapGroupNum.1][i] // second name
-               groups[swapGroupNum.1][swapIndx.1] = temp
+        while (i < groups[swapSecondindx].count) {
+            if i == swapSecondindx {
+                temp2 = groups[swapSecondindx][i] // second name
+               groups[swapSecondindx][swapSecondindx] = temp
             
             }
             i += 1
         }
         
         i = 0
-        while (i < groups[swapGroupNum.0].count) {
-            if i == swapIndx.0 {
-                groups[swapGroupNum.0][i] = temp2
+        while (i < groups[swapOGindx].count) {
+            if i == swapOGindx {
+                groups[swapOGindx][i] = temp2
             }
             i += 1
         }

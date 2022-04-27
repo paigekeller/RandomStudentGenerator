@@ -34,6 +34,8 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UserDefaults.standard.set(indexAt, forKey: "classIndex")
+        
         groupsBtn.setTitleColor(UIColor.white, for: .normal)
         
         classNameLabel.text = selectedClass.className
@@ -91,8 +93,9 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     nvc.indexAt = self.indexAt
     } else if segue.identifier == "toGroups" {
         self.students = self.selectedClass.students
-        let nvc = segue.destination as! GroupsViewController
-        nvc.studentsArray = self.students
+        let nvc = segue.destination as! GroupsListVC
+        nvc.myClass = self.selectedClass
+        nvc.indx = self.indexAt
     }
    }
     
