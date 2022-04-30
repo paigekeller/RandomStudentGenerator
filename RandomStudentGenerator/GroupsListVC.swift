@@ -10,6 +10,7 @@ import UIKit
 class GroupsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var newGroupBtn: UIButton!
     
     //let groups = UserDefaults.standard.array(forKey: "groupsArray") as! [Data]
     var myClass: MyClass = MyClass()
@@ -19,6 +20,9 @@ class GroupsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableview.layer.cornerRadius = 15 //set corner radius here
+        newGroupBtn.layer.cornerRadius = 15 //set corner radius here
         
         var tempArray: [MyClass] = []
         
@@ -37,7 +41,7 @@ class GroupsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
       
         myClass = tempArray[indx]
         print("inside list vc")
-        print(myClass.groups.count)
+       // print(myClass.groups.count)
         tableview.reloadData()
         
         tableview.delegate = self
@@ -77,7 +81,12 @@ class GroupsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myClass.groups.count
+       
+        if let g = myClass.groups {
+            return g.count
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,9 +94,10 @@ class GroupsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         
         cell.textLabel?.font = UIFont(name: "Futura", size: 15)
-        print(myClass.groups.count)
-        cell.textLabel?.text = myClass.groups[indexPath.row].name
-        
+      //  print(myClass.groups.count)
+        if let g = myClass.groups {
+            cell.textLabel?.text = g[indexPath.row].name
+        }
         
         return cell
     }
@@ -99,7 +109,7 @@ class GroupsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: {action, indexPath in
             
             print("deleted")
-        self.myClass.groups.remove(at: indexPath.row)
+        self.myClass.groups!.remove(at: indexPath.row)
         self.tableview.deleteRows(at: [indexPath], with: .automatic)
         
         self.classes = []

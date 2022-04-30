@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+//@available(iOS 15.0, *)
 class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
 
     
@@ -47,6 +49,13 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
         print(groupIndx)
         
+        tableview.layer.cornerRadius = 15 //set corner radius here
+        groupsBtn.layer.cornerRadius = 10 //set corner radius here
+        studentsBtn.layer.cornerRadius = 10 //set corner radius here
+        reRandBtn.layer.cornerRadius = 10 //set corner radius here
+        titleOutlet.layer.cornerRadius = 15
+        titleOutlet.layer.masksToBounds = true
+        
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(okAction)
         randStudentsArray = studentsArray.shuffled()
@@ -58,7 +67,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
         })
         alertName.addAction(action2)
-        let action1 = UIAlertAction(title: "Enter", style: .default, handler: {_ in
+        let action1 = UIAlertAction(title: "Enter", style: .default, handler: { [self]_ in
             
             self.groupName = self.alertName.textFields![0].text!
             
@@ -86,10 +95,12 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 print("Error handing try")
             }
             
-            
-            self.myClass.groups.append(GroupsViewController.newGroup)
+            if self.myClass.groups == nil {
+                self.myClass.groups = []
+            }
+            self.myClass.groups!.append(GroupsViewController.newGroup)
             self.classes[tempIndx] = self.myClass
-            self.myClass.groups[self.myClass.groups.count-1].name = self.groupName
+            self.myClass.groups![self.myClass.groups!.count-1].name = self.groupName
             
             do {
                 // Create JSON Encoder
@@ -137,7 +148,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewWillAppear(_ animated: Bool) {
         saveBtn.titleLabel?.textColor = UIColor.white
         if segueFrom == "ToViewGroup" {
-            selectedGroup = myClass.groups[groupIndx]
+            selectedGroup = myClass.groups![groupIndx]
             print("inside")
             titleOutlet.text = selectedGroup.name
             pickerView.isHidden = true
@@ -152,7 +163,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func groups(_ sender: UIButton) {
         if greenTracker == -1 || greenTracker == 0 {
             groupsBtn.backgroundColor = UIColor(red: 0.3, green: 1, blue: 0.70, alpha: 1)
-            studentsBtn.backgroundColor = UIColor.systemTeal
+            studentsBtn.backgroundColor = UIColor(red: 0, green: 0.780, blue: 0.745, alpha: 1)
 
         }
         if greenTracker != 0 && numPickerAt != 0 && greenTracker != 1 {
@@ -172,7 +183,7 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func students(_ sender: UIButton) {
         if greenTracker == 1 || greenTracker == 0 {
             studentsBtn.backgroundColor = UIColor(red: 0.3, green: 1, blue: 0.70, alpha: 1)
-            groupsBtn.backgroundColor = UIColor.systemTeal
+            groupsBtn.backgroundColor = UIColor(red: 0, green: 0.780, blue: 0.745, alpha: 1)
             
         }
         if greenTracker != 0 && numPickerAt != 0 && greenTracker != -1 {
@@ -283,7 +294,8 @@ class GroupsViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             let cell = tableview.dequeueReusableCell(withIdentifier: "myCell") as! CustomCell2
            
             cell.configure(g: selectedGroup, groupNum: indexPath.row, word: "word")
-           
+            
+            
             return cell
             
         }

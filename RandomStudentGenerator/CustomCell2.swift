@@ -33,6 +33,9 @@ class CustomCell2: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
    
         cell.textLabel?.text = temp[indexPath.row]
         
+        self.groupLabel.layer.cornerRadius = 10
+        self.groupLabel.layer.masksToBounds = true
+        
         return cell
     }
     

@@ -17,19 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="da4-Gg-JQH">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Class Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="da4-Gg-JQH">
                                 <rect key="frame" x="20" y="199" width="158" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="61P-vU-b9E">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Student Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="61P-vU-b9E">
                                 <rect key="frame" x="20" y="274" width="158" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Class Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EG-Zi-80b">
                                 <rect key="frame" x="30" y="170" width="384" height="21"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -68,7 +70,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbS-fl-YgT">
                                 <rect key="frame" x="33" y="810" width="348" height="52"/>
-                                <color key="backgroundColor" red="0.50528765689999999" green="1" blue="0.51533363830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                 <state key="normal" title="Save Class">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,7 +104,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cO3-19-OVI"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="0EG-Zi-80b" firstAttribute="top" secondItem="cO3-19-OVI" secondAttribute="top" constant="82" id="0Pd-or-los"/>
                             <constraint firstItem="Z0a-BJ-ZNL" firstAttribute="leading" secondItem="cO3-19-OVI" secondAttribute="leading" id="34c-OQ-lJa"/>
@@ -151,7 +153,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="className" destination="da4-Gg-JQH" id="A6U-at-bRj"/>
+                        <outlet property="editOutlet" destination="wUW-lj-c1r" id="1J6-mF-yRp"/>
                         <outlet property="label" destination="pxA-Ok-2Of" id="wAa-8k-9bH"/>
+                        <outlet property="plusOutlet" destination="Wbv-6b-UP7" id="tBs-54-VfA"/>
+                        <outlet property="saveClassOutlet" destination="ZbS-fl-YgT" id="gqC-J6-70f"/>
                         <outlet property="studentName" destination="61P-vU-b9E" id="jXQ-cy-epR"/>
                         <outlet property="tableview" destination="Z0a-BJ-ZNL" id="URS-J2-uQE"/>
                         <outlet property="textfield" destination="61P-vU-b9E" id="5Kn-kD-wv2"/>
@@ -186,7 +191,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1j-op-mGQ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="183"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
                                         <state key="normal" title="Create A New Class!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -197,7 +202,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-LG-zfj">
                                         <rect key="frame" x="0.0" y="191" width="414" height="183"/>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="35"/>
                                         <state key="normal" title="My Classes">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -210,7 +215,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wqt-zL-BtX" secondAttribute="bottom" constant="130" id="2bx-m2-fVt"/>
                             <constraint firstItem="ILq-Hn-xKf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="4lu-aP-sjL"/>
@@ -228,6 +233,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="TKs-L1-WyV"/>
                     <connections>
+                        <outlet property="createOutlet" destination="n1j-op-mGQ" id="8jy-rr-FmJ"/>
                         <outlet property="myClsOutlet" destination="19k-LG-zfj" id="qSC-fS-i3s"/>
                         <segue destination="FeJ-4F-05W" kind="show" identifier="toMyClasses" id="92I-7t-4Oq"/>
                         <segue destination="9Ug-yV-5vb" kind="show" identifier="toCreateClass" id="8jZ-Cg-lc0"/>
@@ -248,7 +254,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ko4-yv-Zzz">
                                 <rect key="frame" x="0.0" y="88" width="414" height="84"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EVX-da-hKP">
@@ -309,7 +315,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wJu-wS-nt9"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="EVX-da-hKP" firstAttribute="top" secondItem="wJu-wS-nt9" secondAttribute="top" constant="84" id="6cG-XI-n5b"/>
                             <constraint firstItem="EVX-da-hKP" firstAttribute="top" secondItem="Ko4-yv-Zzz" secondAttribute="bottom" id="Dec-3u-QXi"/>
@@ -331,6 +337,7 @@
                     <connections>
                         <outlet property="tableview" destination="EVX-da-hKP" id="dGi-ap-2JW"/>
                         <segue destination="RoY-MN-itu" kind="show" identifier="toSelectedClass" id="yP0-ka-8uk"/>
+                        <segue destination="Yb9-nP-zEn" kind="show" identifier="toSettings" id="rC5-D0-8jw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5i-ne-Psq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -352,12 +359,12 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piN-Ei-jEs">
                                 <rect key="frame" x="0.0" y="459.5" width="414" height="36.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="91g-wT-W4h">
                                 <rect key="frame" x="20" y="500" width="374" height="362"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="cOY-hs-oxL" style="IBUITableViewCellStyleDefault" id="I2w-Z7-lKX">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
@@ -375,6 +382,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -384,18 +392,25 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bDZ-Kk-apd" secondAttribute="height" multiplier="148:141" id="wdL-Fw-K90"/>
                                 </constraints>
-                                <state key="normal" title="Randomize!" image="fullRandBtn">
+                                <state key="normal" title="Randomize!" image="newRandIcon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="randBtn:" destination="RoY-MN-itu" eventType="touchUpInside" id="jg7-b2-sEH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QX7-EX-EzO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QX7-EX-EzO">
                                 <rect key="frame" x="0.0" y="116" width="414" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Class Name">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="30" name="MarkerFelt-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puA-kr-PYl">
@@ -425,7 +440,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CrU-0i-VzC"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="91g-wT-W4h" firstAttribute="top" secondItem="piN-Ei-jEs" secondAttribute="bottom" constant="4" id="1jY-ed-9j3"/>
                             <constraint firstItem="bDZ-Kk-apd" firstAttribute="top" secondItem="QX7-EX-EzO" secondAttribute="bottom" constant="20" id="3vz-XE-iMD"/>
@@ -506,7 +521,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpE-Uh-TFe">
                                 <rect key="frame" x="0.0" y="88" width="414" height="72"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -520,7 +535,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-1D-OZp">
                                 <rect key="frame" x="30" y="224" width="135" height="58"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -539,7 +554,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYS-ge-jEr">
                                 <rect key="frame" x="249" y="224" width="135" height="58"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -562,7 +577,7 @@
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="204" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rjf-il-R2K">
                                 <rect key="frame" x="0.0" y="403" width="414" height="493"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="204" id="L8Y-rb-LMV" customClass="CustomCell2" customModule="RandomStudentGenerator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="204"/>
@@ -571,11 +586,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group: 1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ML2-ca-2gK">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ML2-ca-2gK">
                                                     <rect key="frame" x="8" y="11" width="87" height="55"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Group: 1">
+                                                            <attributes>
+                                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <font key="NSFont" size="15" name="Futura-Bold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z6b-iG-HBX">
@@ -670,7 +692,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xlM-Lv-JxM"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="f4u-1D-OZp" firstAttribute="top" secondItem="HX1-C6-a01" secondAttribute="bottom" constant="10" id="3QF-ae-DFo"/>
@@ -801,7 +823,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRa-17-NqB">
                                 <rect key="frame" x="20" y="88" width="374" height="67"/>
-                                <color key="backgroundColor" red="0.88119476009999997" green="0.71670267300000001" blue="0.54026328670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -819,7 +841,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SH9-d1-DlU"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="3Mc-1b-IVa" firstAttribute="leading" secondItem="SH9-d1-DlU" secondAttribute="leading" id="5sf-s5-Lnj"/>
                             <constraint firstItem="ItT-Zg-BpP" firstAttribute="leading" secondItem="SH9-d1-DlU" secondAttribute="leading" id="5u4-Cr-cie"/>
@@ -855,6 +877,7 @@
                         </leftBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="newGroupBtn" destination="KRa-17-NqB" id="ZRS-OO-dx2"/>
                         <outlet property="tableview" destination="3Mc-1b-IVa" id="WNQ-hn-kI3"/>
                         <segue destination="AmZ-WW-EKg" kind="show" identifier="ToViewGroup" id="6J0-do-ZWu"/>
                     </connections>
@@ -873,27 +896,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNV-op-k8I">
-                                <rect key="frame" x="70" y="696" width="274" height="62"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <rect key="frame" x="70" y="650" width="274" height="62"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lcg-Rn-Cxe" kind="unwind" unwindAction="unwindToSelectedClass:" id="IVX-zd-gMe"/>
+                                    <action selector="doneBtn:" destination="Yb9-nP-zEn" eventType="touchUpInside" id="ngE-PB-rTf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpU-0A-R5Y">
                                 <rect key="frame" x="0.0" y="88" width="414" height="142"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="VzQ-uS-Vrm">
-                                <rect key="frame" x="10" y="324" width="394" height="244"/>
+                                <rect key="frame" x="10" y="324" width="394" height="198"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgc-PF-g2K">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="36"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Change Randomize Settings">
@@ -904,7 +927,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6j-t4-90M">
-                                        <rect key="frame" x="0.0" y="96.5" width="394" height="51"/>
+                                        <rect key="frame" x="0.0" y="81" width="394" height="36"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Edit Class Name">
@@ -915,7 +938,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfW-ut-j4h">
-                                        <rect key="frame" x="0.0" y="192.5" width="394" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="162" width="394" height="36"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Delete Class">
@@ -929,7 +952,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YPc-H1-p0g"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="YPc-H1-p0g" firstAttribute="bottom" secondItem="NNV-op-k8I" secondAttribute="bottom" constant="55" id="1gf-bS-j1h"/>
                             <constraint firstItem="NNV-op-k8I" firstAttribute="height" secondItem="dH1-qH-cLB" secondAttribute="height" multiplier="0.0691964" id="9rj-2g-KLE"/>
@@ -951,20 +974,20 @@
                         <leftBarButtonItems>
                             <barButtonItem image="arrow.left" catalog="system" id="ttM-os-FkM">
                                 <connections>
-                                    <segue destination="lcg-Rn-Cxe" kind="unwind" unwindAction="unwindToSelectedClass:" id="cfK-hY-KeJ"/>
+                                    <action selector="backBtn:" destination="Yb9-nP-zEn" id="MEk-sg-cJZ"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="                         " id="5xf-JD-5Av"/>
-                            <barButtonItem title="Home" id="3qD-Vh-pM8">
-                                <connections>
-                                    <segue destination="lcg-Rn-Cxe" kind="unwind" unwindAction="unwindHome:" id="Oft-H0-hE3"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem title="Home" id="3qD-Vh-pM8"/>
                         </leftBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="classNameBtn" destination="f6j-t4-90M" id="sx3-27-toK"/>
+                        <outlet property="deleteBtn" destination="VfW-ut-j4h" id="ocR-1b-fpU"/>
+                        <outlet property="randSettingsBtn" destination="xgc-PF-g2K" id="ajL-Yo-Php"/>
                         <segue destination="lcg-Rn-Cxe" kind="unwind" identifier="unwindHome" unwindAction="unwindHome:" id="PKR-bv-02N"/>
-                        <segue destination="lcg-Rn-Cxe" kind="unwind" identifier="unwindToMyClasses" unwindAction="unwindToMyClassesWith_seg:" id="T1U-tB-XZw"/>
+                        <segue destination="lcg-Rn-Cxe" kind="unwind" identifier="backToList" unwindAction="unwindToMyClassesWith_seg:" id="T1U-tB-XZw"/>
+                        <segue destination="lcg-Rn-Cxe" kind="unwind" identifier="backToSelected" unwindAction="unwindToSelectedClass:" id="tYh-Gz-Geg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hW-Af-HVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1005,15 +1028,16 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6J0-do-ZWu"/>
+        <segue reference="rC5-D0-8jw"/>
+        <segue reference="PkN-jI-Xff"/>
         <segue reference="92I-7t-4Oq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="dice" width="512" height="512"/>
-        <image name="fullRandBtn" width="448" height="430"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="newRandIcon" width="414" height="410"/>
         <image name="paintbrush.pointed.fill" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="spotlight" width="380" height="230"/>
@@ -1028,6 +1052,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

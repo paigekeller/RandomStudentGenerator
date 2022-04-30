@@ -9,18 +9,51 @@ import UIKit
 
 class ClassSettings: UIViewController {
 
+    @IBOutlet weak var randSettingsBtn: UIButton!
+    @IBOutlet weak var classNameBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
     var selectedClass: MyClass = MyClass()
-    var indexAt: Int = 6
-    var tempRS: String = ""
+    var indexAt: Int = 0
+    var fromListView: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        randSettingsBtn.layer.cornerRadius = 15
+        classNameBtn.layer.cornerRadius = 15
+        deleteBtn.layer.cornerRadius = 15
+       
         print("new index at")
         print(indexAt)
         print(selectedClass.keepStudentSetting)
         print(selectedClass.className)
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func backBtn(_ sender: UIBarButtonItem) {
+        if fromListView == true {
+            performSegue(withIdentifier: "backToList", sender: nil)
+        } else {
+            performSegue(withIdentifier: "backToSelected", sender: nil)
+        }
+        
+    }
+    
+    
+    @IBAction func doneBtn(_ sender: UIButton) {
+        
+        if fromListView == true {
+            performSegue(withIdentifier: "backToList", sender: nil)
+        } else {
+            performSegue(withIdentifier: "backToSelected", sender: nil)
+        }
+        
+    }
+    
+    
+    
+    
     
     
     //DELETE BUTTON
@@ -34,7 +67,7 @@ class ClassSettings: UIViewController {
             UserDefaults.standard.set(tempClassArray, forKey: "classArray")
             
             print("successfully deleted")
-            self.performSegue(withIdentifier: "unwindToMyClasses", sender: nil)
+            self.performSegue(withIdentifier: "backToList", sender: nil)
         })
         
         let noAction = UIAlertAction(title: "No", style: .default, handler:  { (_) in
@@ -165,6 +198,9 @@ class ClassSettings: UIViewController {
         alert3.addAction(action3)
         present(alert3, animated: true, completion: nil)
     }
+    
+    
+    
     
 
 }

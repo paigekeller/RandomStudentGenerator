@@ -55,7 +55,7 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // UserDefaults.standard.removeObject(forKey: "classArray")
+        tableview.layer.cornerRadius = 15 //set corner radius here
         
         tableview.delegate = self
         tableview.dataSource = self
@@ -74,19 +74,22 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
        
         do {
         let decoder = JSONDecoder()
+        
             if let usdf = UserDefaults.standard.array(forKey: "classArray") {
             print("before loop")
             for each in usdf {
                 print("inside loop")
         // Decode Class
-                print(each)
-            let temp = try decoder.decode(MyClass.self, from: each as! Data)
+                let temp = try decoder.decode(MyClass.self, from: each as! Data)
+                    
+                
             classes.append(temp)
-            print(temp)
+                print(classes.count)
     }
             }
         } catch {
             print("Error handing try")
+    
         }
    
         
@@ -141,11 +144,16 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
             nvc.selectedClass = self.selectedClass
             nvc.indexAt = self.indexAt
             nvc.temp = self.temp
+        } else if segue.identifier == "toSettings" {
+            let nvc = segue.destination as! ClassSettings
+            nvc.selectedClass = self.selectedClass
+            nvc.indexAt = self.indexAt
+            nvc.fromListView = true
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        print(classes.count)
         return classes.count
     }
     
@@ -165,7 +173,21 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         return cell
     }
-
+    
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //settings edit
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Settings", handler: {action, indexPath in
+            self.selectedClass = self.classes[indexPath.row]
+            self.indexAt = indexPath.row
+            self.performSegue(withIdentifier: "toSettings", sender: nil)
+        })
+    
+        return [deleteAction]
+    }
+    
+//color stuff
     @objc private func didTapSelectColor() {
         let colorPickerVC = UIColorPickerViewController()
         colorPickerVC.delegate = self

@@ -28,11 +28,19 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let alert = UIAlertController(title: "Error \n Looks like you already have a student with that name!", message: nil, preferredStyle: .alert)
     let alert2 = UIAlertController(title: "Edit Student Name", message: nil, preferredStyle: .alert)
     let addStudentAlert = UIAlertController(title: "Add Student", message: nil, preferredStyle: .alert)
+    var choosenStudent: Bool = false
+    var random: Int = 0
     
     var students: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableview.layer.cornerRadius = 15 //set corner radius here
+        groupsBtn.layer.cornerRadius = 10 //set corner radius here
+        randBtn.layer.cornerRadius = 15 //set corner radius here
+        classNameLabel.layer.cornerRadius = 15
+        classNameLabel.layer.masksToBounds = true
 
         UserDefaults.standard.set(indexAt, forKey: "classIndex")
         
@@ -91,6 +99,7 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let nvc = segue.destination as! ClassSettings
     nvc.selectedClass = self.selectedClass
     nvc.indexAt = self.indexAt
+        nvc.fromListView = false
     } else if segue.identifier == "toGroups" {
         self.students = self.selectedClass.students
         let nvc = segue.destination as! GroupsListVC
@@ -117,19 +126,19 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBAction func randBtn(_ sender: UIButton) {
         
-        if randBtn.imageView?.image == UIImage(named: "resetbuttonPic")! {
+        if randBtn.imageView?.image == UIImage(named: "modernReset")! {
             
             students = selectedClass.students
             spotlight.isHidden = true
             studentChoosenLabel.text = ""
-            let image = UIImage(named: "fullRandBtn")
+            let image = UIImage(named: "newRandIcon")
             randBtn.setImage(image, for: .normal)
             
         } else {
             
         if students.count != 0 {
         if selectedClass.keepStudentSetting == "true" {
-        let random = Int.random(in: 0...(selectedClass.students.count-1))
+        random = Int.random(in: 0...(selectedClass.students.count-1))
         
         studentChoosenLabel.text = selectedClass.students[random]
         
@@ -138,13 +147,13 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
             
             print("false: remove student")
-            let random = Int.random(in: 0...(students.count-1))
+            random = Int.random(in: 0...(students.count-1))
             studentChoosenLabel.text = students[random]
             if students.count != 1{
             students.remove(at: random)
             } else { //does = 1
                 
-                let image = UIImage(named: "resetbuttonPic")
+                let image = UIImage(named: "modernReset")
                 randBtn.setImage(image, for: .normal)
             }
             
@@ -153,6 +162,10 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
       }
         }
+        choosenStudent = true
+        tableview.reloadData()
+        
+        
     }
     
 
@@ -243,10 +256,19 @@ class SelectedClass: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.textLabel?.font = UIFont(name: "Futura", size: CGFloat(18))
         
         cell.textLabel?.text = selectedClass.students[indexPath.row]
+        cell.backgroundColor = UIColor.white
+        if choosenStudent == true {
+            print("inside choose student = true")
+            if selectedClass.students[indexPath.row] == studentChoosenLabel.text {
+                print(random)
+                print(indexPath.row)
+            cell.backgroundColor = UIColor(red: 0.984, green: 1, blue: 0.501, alpha: 1)
+                choosenStudent = false
+            }
+        } else {
         
-        //cell.backgroundColor = UserDefaults.standard.colorForKey(data: temp[indexAt])
-    
-        
+            cell.backgroundColor = UIColor.white
+        }
         return cell
     }
     

@@ -15,11 +15,15 @@ class ViewController: UIViewController {
 
     let mySchedule = Schedule()
     @IBOutlet weak var myClsOutlet: UIButton!
+    @IBOutlet weak var createOutlet: UIButton!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         print("hello world")
+        
+        myClsOutlet.layer.cornerRadius = 20 //set corner radius here
+        createOutlet.layer.cornerRadius = 20 //set corner radius here
         
     }
 

@@ -17,17 +17,26 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var className: UITextField!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var studentName: UITextField!
+    @IBOutlet weak var saveClassOutlet: UIButton!
+    @IBOutlet weak var plusOutlet: UIButton!
+    @IBOutlet weak var editOutlet: UIButton!
     var classroomName: String = ""
     var studentsArray: [String] = []
     let defaults = UserDefaults()
     var schedule = Schedule()
     let alert = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a class name!", preferredStyle: .alert)
+    let alert1 = UIAlertController(title: "Invalid Entry", message: "Oops! Looks like you forgot to enter a student name!", preferredStyle: .alert)
     let alert2 = UIAlertController(title: "Edit Student Name", message: nil, preferredStyle: .alert)
     let alert3 = UIAlertController(title: "Error \n Looks like you already have a student with that name!", message: nil, preferredStyle: .alert)
     var num = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableview.layer.cornerRadius = 15 //set corner radius here
+        saveClassOutlet.layer.cornerRadius = 15 //set corner radius here
+        plusOutlet.layer.cornerRadius = 10 //set corner radius here
+        editOutlet.layer.cornerRadius = 10 //set corner radius here
         
         tableview.delegate = self
         tableview.dataSource = self
@@ -67,7 +76,7 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBAction func addButton(_ sender: UIButton) {
         if studentName.text?.isEmpty == true {
             print("no")
-            present(alert, animated: true)
+            present(alert1, animated: true)
         } else if checkNames(name: studentName.text!) == true {
             present(alert3, animated: true, completion: nil)
         } else {
@@ -77,7 +86,6 @@ class CreateClass: UIViewController, UITableViewDelegate, UITableViewDataSource,
         tableview.reloadData()
         studentName.text = ""
     }
-    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
