@@ -333,8 +333,14 @@
                                 <segue destination="N6q-qa-Kn6" kind="unwind" unwindAction="unwindHome:" id="ZgV-KQ-Z23"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="SPO-Do-LcM">
+                            <connections>
+                                <action selector="didTapSort" destination="FeJ-4F-05W" id="5Gh-VQ-2YO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="sortBtn" destination="SPO-Do-LcM" id="vN1-Of-lBJ"/>
                         <outlet property="tableview" destination="EVX-da-hKP" id="dGi-ap-2JW"/>
                         <segue destination="RoY-MN-itu" kind="show" identifier="toSelectedClass" id="yP0-ka-8uk"/>
                         <segue destination="Yb9-nP-zEn" kind="show" identifier="toSettings" id="rC5-D0-8jw"/>
@@ -978,7 +984,11 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="                         " id="5xf-JD-5Av"/>
-                            <barButtonItem title="Home" id="3qD-Vh-pM8"/>
+                            <barButtonItem title="Home" id="3qD-Vh-pM8">
+                                <connections>
+                                    <segue destination="lcg-Rn-Cxe" kind="unwind" unwindAction="unwindHome:" id="PyB-KJ-x7b"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                     </navigationItem>
                     <connections>

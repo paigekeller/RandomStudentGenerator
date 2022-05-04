@@ -14,7 +14,7 @@ extension UserDefaults {
             do {
                 colorData = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false ) as NSData?
                 return colorData
-//                set(colorData, forKey: key)
+
             } catch let err {
                 print("error archiving colorData", err)
             }
@@ -40,6 +40,7 @@ extension UserDefaults {
 @available(iOS 14.0, *)
 class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIColorPickerViewControllerDelegate {
     
+    @IBOutlet weak var sortBtn: UIBarButtonItem!
     @IBOutlet weak var tableview: UITableView!
     
     let defaults = UserDefaults()
@@ -216,10 +217,21 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        print("I am here")
-        return true
+    @IBAction func didTapSort() {
+        if tableview.isEditing {
+            tableview.isEditing = false
+            sortBtn.title = "Sort"
+            print("1")
+        } else {
+            tableview.isEditing = true
+            sortBtn.title = "Done"
+            print("2")
+        }
         
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
 //moving cells
@@ -229,15 +241,40 @@ class MyClassesVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
          let classToMove = classes[sourceIndexPath.row]
          let colorToMove = classColors[sourceIndexPath.row]
          
-         //add class to new spot
-         classes.insert(classToMove, at: destinationIndexPath.row)
-         classColors.insert(colorToMove, at: destinationIndexPath.row)
          
          //delete old class location
          classes.remove(at: sourceIndexPath.row)
          classColors.remove(at: sourceIndexPath.row)
+         //add class to new spot
+         classes.insert(classToMove, at: destinationIndexPath.row)
+         classColors.insert(colorToMove, at: destinationIndexPath.row)
          
-         //UserDefaults.standard.set(classes)
+//         //delete old class location
+//         classes.remove(at: sourceIndexPath.row)
+//         classColors.remove(at: sourceIndexPath.row)
+         
+         var tempData: [Data] = []
+         do {
+             // Create JSON Encoder
+             let encoder = JSONEncoder()
+             
+             for each in classes {
+             // Encode Note
+             let data = try encoder.encode(each)
+             tempData.append(data)
+             }
+         }catch{
+             print("Unable to Encode Class (\(error))")
+
+         }
+
+             temp = []
+             for each in classColors {
+                 temp.append(UserDefaults.standard.setColor(color: each))
+             }
+             
+         UserDefaults.standard.set(tempData, forKey: "classArray")
+         UserDefaults.standard.set(temp, forKey: "colors")
          
          tableView.reloadData()
     }

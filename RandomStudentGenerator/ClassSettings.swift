@@ -62,9 +62,13 @@ class ClassSettings: UIViewController {
         let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (_) in
             var tempClassArray = UserDefaults.standard.array(forKey: "classArray") as? [Data]
             tempClassArray?.remove(at: self.indexAt)
-          
+            var tempColorArray = UserDefaults.standard.array(forKey: "colors") as? [Data]
+            tempColorArray?.remove(at: self.indexAt)
+            
             //restoring the array of all the classes
             UserDefaults.standard.set(tempClassArray, forKey: "classArray")
+            UserDefaults.standard.set(tempColorArray, forKey: "colors")
+            
             
             print("successfully deleted")
             self.performSegue(withIdentifier: "backToList", sender: nil)
